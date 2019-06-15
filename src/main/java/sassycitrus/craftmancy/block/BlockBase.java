@@ -62,7 +62,7 @@ public class BlockBase extends Block
     {
         if (StringUtil.isShiftKeyDown())
         {
-            tooltip.add(StringUtil.getInfoText("info.entropycraft." + this.name));
+            tooltip.add(StringUtil.getInfoText("info.craftmancy." + this.name));
         }
         else
         {

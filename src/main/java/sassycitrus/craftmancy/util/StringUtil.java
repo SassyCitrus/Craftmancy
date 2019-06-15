@@ -24,6 +24,6 @@ public class StringUtil
 
     public static String shiftForDetails()
     {
-        return localize("info.entropycraft.holdShiftForDetails");
+        return localize("info.craftmancy.holdShiftForDetails");
     }
 }
