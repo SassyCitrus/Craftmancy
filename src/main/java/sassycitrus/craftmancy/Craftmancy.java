@@ -14,6 +14,8 @@ public class Craftmancy
     public static final String name = "Craftmancy";
     public static final String version = "1.0.0";
 
+    public static final CraftmancyTab creativeTab = new CraftmancyTab();
+
     @Mod.Instance(modid)
     public static Craftmancy instance;
 
