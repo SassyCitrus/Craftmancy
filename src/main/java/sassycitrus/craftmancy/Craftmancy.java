@@ -1,7 +1,5 @@
 package sassycitrus.craftmancy;
 
-import com.google.common.eventbus.Subscribe;
-
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;

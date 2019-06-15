@@ -1,8 +1,8 @@
 package sassycitrus.craftmancy;
 
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import sassycitrus.craftmancy.init.CraftmancyItems;
 
 public class CraftmancyTab extends CreativeTabs
 {
@@ -14,6 +14,6 @@ public class CraftmancyTab extends CreativeTabs
     @Override
     public ItemStack getTabIconItem()
     {
-        return new ItemStack(Items.DIAMOND);
+        return new ItemStack(CraftmancyItems.gem_edelila);
     }
 }
