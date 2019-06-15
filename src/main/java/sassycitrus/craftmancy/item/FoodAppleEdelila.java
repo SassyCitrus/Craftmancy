@@ -15,11 +15,11 @@ import net.minecraft.world.World;
 import sassycitrus.craftmancy.Craftmancy;
 import sassycitrus.craftmancy.util.StringUtil;
 
-public class ItemFoodAppleEdelila extends ItemFood
+public class FoodAppleEdelila extends ItemFood
 {
     private static final String NAME = "apple_edelila";
 
-    public ItemFoodAppleEdelila()
+    public FoodAppleEdelila()
     {
         super(4, 1.2F, false);
         setUnlocalizedName(NAME);
