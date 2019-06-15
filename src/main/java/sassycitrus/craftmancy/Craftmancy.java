@@ -1,10 +1,19 @@
 package sassycitrus.craftmancy;
 
+import com.google.common.eventbus.Subscribe;
+
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import sassycitrus.craftmancy.init.CraftmancyBlocks;
+import sassycitrus.craftmancy.init.CraftmancyItems;
 import sassycitrus.craftmancy.proxy.CommonProxy;
 
 @Mod(modid = Craftmancy.modid, name = Craftmancy.name, version = Craftmancy.version)
@@ -38,5 +47,29 @@ public class Craftmancy
     public void postInit(FMLPostInitializationEvent event)
     {
 
+    }
+
+    @Mod.EventBusSubscriber
+    public static class Registrationhandler
+    {
+        @SubscribeEvent
+        public static void registerBlocks(RegistryEvent.Register<Block> event)
+        {
+            CraftmancyBlocks.register(event.getRegistry());
+        }
+
+        @SubscribeEvent
+        public static void registerItems(RegistryEvent.Register<Item> event)
+        {
+            CraftmancyItems.register(event.getRegistry());
+            CraftmancyBlocks.registerItemBlocks(event.getRegistry());
+        }
+
+        @SubscribeEvent
+        public static void registerModels(ModelRegistryEvent event)
+        {
+            CraftmancyItems.registerModels();
+            CraftmancyBlocks.registerModels();
+        }
     }
 }
