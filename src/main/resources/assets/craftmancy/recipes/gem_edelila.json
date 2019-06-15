@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "craftmancy:edelila_block"
+        }
+    ],
+    "result": {
+        "item": "craftmancy:gem_edelila",
+        "count": 9
+    }
+}
