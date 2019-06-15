@@ -1,0 +1,16 @@
+[
+{
+  "modid": "craftmancy",
+  "name": "Craftmancy",
+  "description": "The magic of crafting",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["tryton-vanmeer"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
