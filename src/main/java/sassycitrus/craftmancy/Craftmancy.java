@@ -3,16 +3,18 @@ package sassycitrus.craftmancy;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
-import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.RegistryEvent;  
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import sassycitrus.craftmancy.init.CraftmancyBlocks;
 import sassycitrus.craftmancy.init.CraftmancyItems;
 import sassycitrus.craftmancy.proxy.CommonProxy;
+import sassycitrus.craftmancy.world.CraftmancyWorldGen;
 
 @Mod(modid = Craftmancy.modid, name = Craftmancy.name, version = Craftmancy.version)
 public class Craftmancy
@@ -33,6 +35,7 @@ public class Craftmancy
     public void preInit(FMLPreInitializationEvent event)
     {
         System.out.println(name + " is loading!");
+        GameRegistry.registerWorldGenerator(new CraftmancyWorldGen(), 3);
     }
 
     @Mod.EventHandler
