@@ -3,6 +3,7 @@ package sassycitrus.craftmancy.init;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraftforge.registries.IForgeRegistry;
 import sassycitrus.craftmancy.block.BlockBase;
 import sassycitrus.craftmancy.block.ore.OreEdelila;
@@ -23,8 +24,8 @@ public class CraftmancyBlocks
     public static void registerItemBlocks(IForgeRegistry<Item> registry)
     {
         registry.registerAll(
-            blockEdelila.createItemBlock(),
-            oreEdelila.createItemBlock()
+            createItemBlock(blockEdelila),
+            createItemBlock(oreEdelila)
         );
     }
 
@@ -32,5 +33,10 @@ public class CraftmancyBlocks
     {
         blockEdelila.registerItemModel(Item.getItemFromBlock(blockEdelila));
         oreEdelila.registerItemModel(Item.getItemFromBlock(oreEdelila));
+    }
+
+    private static Item createItemBlock(Block block)
+    {
+        return new ItemBlock(block).setRegistryName(block.getRegistryName());
     }
 }
