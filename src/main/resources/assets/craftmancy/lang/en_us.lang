@@ -1,3 +1,9 @@
 itemGroup.craftmancy=Craftmancy
 
 info.craftmancy.holdShiftForDetails=Hold §e§oShift§r§7 for Details§r
+
+tile.ore_edelila.name=Edelila Ore
+tile.edelila_block.name=Edelila Block
+
+item.gem_edelila.name=Edelila
+item.apple_edelila.name=Edelila Apple
