@@ -11,6 +11,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import sassycitrus.craftmancy.capability.ManaCapabilityHandler;
 import sassycitrus.craftmancy.init.CraftmancyBlocks;
 import sassycitrus.craftmancy.init.CraftmancyItems;
 import sassycitrus.craftmancy.proxy.CommonProxy;
@@ -36,6 +37,7 @@ public class Craftmancy
     {
         System.out.println(name + " is loading!");
         GameRegistry.registerWorldGenerator(new CraftmancyWorldGen(), 3);
+        ManaCapabilityHandler.register();
     }
 
     @Mod.EventHandler
