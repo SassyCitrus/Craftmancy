@@ -27,7 +27,7 @@ public class OreEdelila extends BlockBase
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return CraftmancyItems.gemEdelila;
+        return CraftmancyItems.GEM_EDELILA;
     }
 
     @Override

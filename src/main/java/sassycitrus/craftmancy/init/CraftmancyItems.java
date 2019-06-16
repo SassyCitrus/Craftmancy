@@ -7,20 +7,20 @@ import sassycitrus.craftmancy.item.FoodAppleEdelila;
 
 public class CraftmancyItems
 {
-    public static ItemBase gemEdelila = new ItemBase("gem_edelila");
-    public static FoodAppleEdelila appleEdelila = new FoodAppleEdelila();
+    public static ItemBase GEM_EDELILA = new ItemBase("gem_edelila");
+    public static FoodAppleEdelila EDELILA_APPLE = new FoodAppleEdelila();
 
     public static void register(IForgeRegistry<Item> registry)
     {
         registry.registerAll(
-            gemEdelila,
-            appleEdelila
+            GEM_EDELILA,
+            EDELILA_APPLE
         );
     }
 
     public static void registerModels()
     {
-        gemEdelila.registerItemModel();
-        appleEdelila.registerItemModel();
+        GEM_EDELILA.registerItemModel();
+        EDELILA_APPLE.registerItemModel();
     }
 }

@@ -14,6 +14,6 @@ public class CraftmancyTab extends CreativeTabs
     @Override
     public ItemStack getTabIconItem()
     {
-        return new ItemStack(CraftmancyItems.gemEdelila);
+        return new ItemStack(CraftmancyItems.GEM_EDELILA);
     }
 }
