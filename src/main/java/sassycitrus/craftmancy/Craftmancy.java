@@ -45,6 +45,7 @@ public class Craftmancy
     public void init(FMLInitializationEvent event)
     {
         CraftmancyRecipes.registerSmelting();
+        CraftmancyRecipes.registerOreDict();
     }
 
     @Mod.EventHandler
