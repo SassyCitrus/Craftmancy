@@ -14,6 +14,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import sassycitrus.craftmancy.capability.ManaCapabilityHandler;
 import sassycitrus.craftmancy.init.CraftmancyBlocks;
 import sassycitrus.craftmancy.init.CraftmancyItems;
+import sassycitrus.craftmancy.init.CraftmancyRecipes;
 import sassycitrus.craftmancy.proxy.CommonProxy;
 import sassycitrus.craftmancy.world.CraftmancyWorldGen;
 
@@ -43,7 +44,7 @@ public class Craftmancy
     @Mod.EventHandler
     public void init(FMLInitializationEvent event)
     {
-
+        CraftmancyRecipes.registerSmelting();
     }
 
     @Mod.EventHandler
