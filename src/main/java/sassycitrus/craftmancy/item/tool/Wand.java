@@ -5,9 +5,14 @@ import sassycitrus.craftmancy.item.ItemBase;
 
 public class Wand extends ItemBase
 {
-    public Wand()
+    protected int level;
+
+    public Wand(int level)
     {
-        super("wand");
+        super("wand_" + level);
+
+        this.level = level;
+
         setMaxStackSize(1);
         setRarity(EnumRarity.RARE);
     }
