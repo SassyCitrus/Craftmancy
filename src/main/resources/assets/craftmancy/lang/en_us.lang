@@ -3,7 +3,10 @@ itemGroup.craftmancy=Craftmancy
 info.craftmancy.holdShiftForDetails=Hold §e§oShift§r§7 for Details§r
 
 tile.ore_edelila.name=Edelila Ore
+tile.ore_mithril.name=Mithril Ore
 tile.edelila_block.name=Edelila Block
+tile.mithril_block.name=Mithril Block
 
 item.gem_edelila.name=Edelila
+item.ingot_mithril.name=Mithril Ingot
 item.apple_edelila.name=Edelila Apple
