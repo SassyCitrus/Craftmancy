@@ -75,6 +75,7 @@ public class Craftmancy
         {
             CraftmancyItems.registerModels();
             CraftmancyBlocks.registerModels();
+            proxy.registerModelLoader();
         }
     }
 }
