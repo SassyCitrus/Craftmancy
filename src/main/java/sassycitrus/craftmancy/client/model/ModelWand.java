@@ -43,6 +43,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import sassycitrus.craftmancy.Craftmancy;
 import sassycitrus.craftmancy.api.wand.WandPartRegistry;
+import sassycitrus.craftmancy.api.wand.WandPartRegistry.WandPart;
 
 @SideOnly(Side.CLIENT)
 public final class ModelWand implements IModel
@@ -199,19 +200,39 @@ public final class ModelWand implements IModel
         {
             Baked model = (Baked) originalModel;
 
-            IModel parent = model.parent.process(ImmutableMap.of("core", "craftmancy:items/wand/core_wood", "binding", "craftmancy:items/wand/binding_iron", "gem", "craftmancy:items/wand/gem_diamond"));
-            Function<ResourceLocation, TextureAtlasSprite> textureGetter;
-            textureGetter = new Function<ResourceLocation, TextureAtlasSprite>()
-            {
-                @Override
-                public TextureAtlasSprite apply(ResourceLocation location)
-                {
-                    return Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(location.toString());
-                }
-            };
+            WandPartRegistry registry = WandPartRegistry.getInstance();
 
-            IBakedModel baked = parent.bake(new SimpleModelState(model.transforms), model.format, textureGetter);
-            return baked;
+            if (stack.hasTagCompound())
+            {
+                WandPart core = registry.getPart(stack.getTagCompound().getString("core"));
+                WandPart binding = registry.getPart(stack.getTagCompound().getString("binding"));
+                WandPart gem = registry.getPart(stack.getTagCompound().getString("gem"));
+
+                String key = core.toString() + "/" + binding.toString() + "/" + gem.toString();
+
+                if (!model.cache.containsKey(key))
+                {
+                    IModel parent = model.parent.process(ImmutableMap.of("core", core.getTexture().toString(), "binding", binding.getTexture().toString(), "gem", gem.getTexture().toString()));
+
+                    Function<ResourceLocation, TextureAtlasSprite> textureGetter;
+                    textureGetter = new Function<ResourceLocation, TextureAtlasSprite>()
+                    {
+                        @Override
+                        public TextureAtlasSprite apply(ResourceLocation location)
+                        {
+                            return Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(location.toString());
+                        }
+                    };
+
+                    IBakedModel baked = parent.bake(new SimpleModelState(model.transforms), model.format, textureGetter);
+                    model.cache.put(key, baked);
+                    return baked;
+                }
+                
+                return model.cache.get(key);
+            }
+
+            return model;
         }
     }
 
