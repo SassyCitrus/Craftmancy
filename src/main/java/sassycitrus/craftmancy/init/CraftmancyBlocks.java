@@ -11,6 +11,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 import sassycitrus.craftmancy.Craftmancy;
 import sassycitrus.craftmancy.block.BlockBase;
 import sassycitrus.craftmancy.block.ore.OreEdelila;
+import sassycitrus.craftmancy.block.ore.OreFeuermin;
 
 public class CraftmancyBlocks
 {
@@ -18,8 +19,11 @@ public class CraftmancyBlocks
 
     public static Block EDELILA_BLOCK = registerBlock(new BlockBase(Material.IRON, "edelila_block").setHardness(3.0F).setResistance(5.0F).setHarvestLevelBase("pickaxe", 2));
     public static Block MITHRIL_BLOCK = registerBlock(new BlockBase(Material.IRON, "mithril_block").setHardness(3.0F).setResistance(5.0F).setHarvestLevelBase("pickaxe", 2));
+    public static Block FEUERMIN_BLOCK = registerBlock(new BlockBase(Material.IRON, "feuermin_block").setHardness(3.0F).setResistance(5.0F).setHarvestLevelBase("pickaxe", 2));
+    public static Block FEUERSTEEL = registerBlock(new BlockBase(Material.IRON, "feuersteel_block").setHardness(3.0F).setResistance(5.0F).setHarvestLevelBase("pickaxe", 2));
     public static Block ORE_EDELILA = registerBlock(new OreEdelila());
     public static Block ORE_MITHRIL = registerBlock(new BlockBase(Material.ROCK, "ore_mithril").setHardness(3.0F).setResistance(5.0F).setHarvestLevelBase("pickaxe", 2));
+    public static Block ORE_FEUERMIN = registerBlock(new OreFeuermin());
 
     private static Block registerBlock(Block block)
     {

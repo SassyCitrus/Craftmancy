@@ -15,6 +15,8 @@ public class CraftmancyItems
 
     public static Item GEM_EDELILA = registerItem("gem_edelila");
     public static Item INGOT_MITHRIL = registerItem("ingot_mithril");
+    public static Item FEUERMIN = registerItem("feuermin");
+    public static Item INGOT_FEUERSTEEL = registerItem("ingot_feuersteel");
     public static Item EDELILA_APPLE = registerItem(new FoodAppleEdelila());
     public static Item WAND = registerItem(new Wand());
 
