@@ -11,12 +11,12 @@ import javax.vecmath.Vector3f;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Maps;
 
 import org.apache.commons.lang3.tuple.Pair;
 
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
@@ -36,11 +36,13 @@ import net.minecraftforge.client.model.ICustomModelLoader;
 import net.minecraftforge.client.model.IModel;
 import net.minecraftforge.client.model.ItemLayerModel;
 import net.minecraftforge.client.model.PerspectiveMapWrapper;
+import net.minecraftforge.client.model.SimpleModelState;
 import net.minecraftforge.common.model.IModelState;
 import net.minecraftforge.common.model.TRSRTransformation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import sassycitrus.craftmancy.Craftmancy;
+import sassycitrus.craftmancy.api.wand.WandPartRegistry;
 
 @SideOnly(Side.CLIENT)
 public final class ModelWand implements IModel
@@ -48,18 +50,29 @@ public final class ModelWand implements IModel
     public static final ModelWand MODEL = new ModelWand();
 
     public static final ModelResourceLocation LOCATION = new ModelResourceLocation(new ResourceLocation(Craftmancy.modid, "wand"), "inventory");
-    public static final ResourceLocation LOCATION_WAND = new ResourceLocation(Craftmancy.modid, "items/wand_1");
 
-    // private final ResourceLocation LOCATION_CORE = new ResourceLocation(Craftmancy.modid, "items/wand/core");
-    // private final ResourceLocation LOCATION_BINDING = new ResourceLocation(Craftmancy.modid, "items/wand/binding");
-    // private final ResourceLocation LOCATION_GEM = new ResourceLocation(Craftmancy.modid, "items/wand/gem");
+    private ResourceLocation core;
+    private ResourceLocation binding;
+    private ResourceLocation gem;
+
+    public ModelWand()
+    {
+        this.core = null;
+        this.binding = null;
+        this.gem = null;
+    }
+
+    public ModelWand(ResourceLocation core, ResourceLocation binding, ResourceLocation gem)
+    {
+        this.core = core;
+        this.binding = binding;
+        this.gem = gem;
+    }
     
     @Override
     public Collection<ResourceLocation> getTextures()
     {
-        ImmutableSet.Builder<ResourceLocation> builder = ImmutableSet.builder();
-        builder.add(LOCATION_WAND);
-        return builder.build();
+        return WandPartRegistry.getInstance().getTextures();
     }
 
     @Override
@@ -68,12 +81,19 @@ public final class ModelWand implements IModel
     {
         ImmutableMap<TransformType, TRSRTransformation> transformMap = getTransformMap();
 
-        // TRSRTransformation transform = state.apply(Optional.empty()).orElse(TRSRTransformation.identity());
-        
         ImmutableList.Builder<BakedQuad> builder = ImmutableList.builder();
 
-        IBakedModel model = (new ItemLayerModel(ImmutableList.of(LOCATION_WAND))).bake(state, format, bakedTextureGetter);
-        builder.addAll(model.getQuads(null, null, 0));
+        if (this.core != null && this.binding != null && this.gem != null)
+        {
+            IBakedModel modelCore = (new ItemLayerModel(ImmutableList.of(this.core))).bake(state, format, bakedTextureGetter);
+            builder.addAll(modelCore.getQuads(null, null, 0));
+
+            IBakedModel modelBinding = (new ItemLayerModel(ImmutableList.of(this.binding))).bake(state, format, bakedTextureGetter);
+            builder.addAll(modelBinding.getQuads(null, null, 0));
+
+            IBakedModel modelGem = (new ItemLayerModel(ImmutableList.of(this.gem))).bake(state, format, bakedTextureGetter);
+            builder.addAll(modelGem.getQuads(null, null, 0));
+        }
 
         return new Baked(this, builder.build(), format, Maps.immutableEnumMap(transformMap), Maps.<String, IBakedModel> newHashMap());
     }
@@ -81,7 +101,11 @@ public final class ModelWand implements IModel
     @Override
     public IModel process(ImmutableMap<String, String> customData)
     {
-        return IModel.super.process(customData);
+        ResourceLocation core = new ResourceLocation(customData.get("core"));
+        ResourceLocation binding = new ResourceLocation(customData.get("binding"));
+        ResourceLocation gem = new ResourceLocation(customData.get("gem"));
+
+        return new ModelWand(core, binding, gem);
     }
 
     private ImmutableMap<TransformType, TRSRTransformation> getTransformMap()
@@ -173,7 +197,21 @@ public final class ModelWand implements IModel
         public IBakedModel handleItemState(IBakedModel originalModel, ItemStack stack, World world,
                 EntityLivingBase entity)
         {
-            return super.handleItemState(originalModel, stack, world, entity);
+            Baked model = (Baked) originalModel;
+
+            IModel parent = model.parent.process(ImmutableMap.of("core", "craftmancy:items/wand/core_wood", "binding", "craftmancy:items/wand/binding_iron", "gem", "craftmancy:items/wand/gem_diamond"));
+            Function<ResourceLocation, TextureAtlasSprite> textureGetter;
+            textureGetter = new Function<ResourceLocation, TextureAtlasSprite>()
+            {
+                @Override
+                public TextureAtlasSprite apply(ResourceLocation location)
+                {
+                    return Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(location.toString());
+                }
+            };
+
+            IBakedModel baked = parent.bake(new SimpleModelState(model.transforms), model.format, textureGetter);
+            return baked;
         }
     }
 
