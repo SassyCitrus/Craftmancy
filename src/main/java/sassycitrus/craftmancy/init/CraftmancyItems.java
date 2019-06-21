@@ -1,13 +1,9 @@
 package sassycitrus.craftmancy.init;
 
-import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.item.Item;
-import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 import sassycitrus.craftmancy.item.ItemBase;
 import sassycitrus.craftmancy.item.tool.Wand;
-import sassycitrus.craftmancy.client.model.ModelWand;
 import sassycitrus.craftmancy.item.FoodAppleEdelila;
 
 public class CraftmancyItems
