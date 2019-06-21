@@ -1,46 +1,59 @@
 package sassycitrus.craftmancy.init;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.registries.IForgeRegistry;
+import sassycitrus.craftmancy.Craftmancy;
 import sassycitrus.craftmancy.block.BlockBase;
 import sassycitrus.craftmancy.block.ore.OreEdelila;
 
 public class CraftmancyBlocks
 {
-    public static BlockBase EDELILA_BLOCK = new BlockBase(Material.IRON, "edelila_block").setHardness(3.0F).setResistance(5.0F).setHarvestLevelBase("pickaxe", 2);
-    public static BlockBase MITHRIL_BLOCK = new BlockBase(Material.IRON, "mithril_block").setHardness(3.0F).setResistance(5.0F).setHarvestLevelBase("pickaxe", 2);
-    public static BlockBase ORE_EDELILA = new OreEdelila();
-    public static BlockBase ORE_MITHRIL = new BlockBase(Material.ROCK, "ore_mithril").setHardness(3.0F).setResistance(5.0F).setHarvestLevelBase("pickaxe", 2);
+    public static HashMap<String, Block> BLOCKS = new HashMap<String, Block>();
+
+    public static Block EDELILA_BLOCK = registerBlock(new BlockBase(Material.IRON, "edelila_block").setHardness(3.0F).setResistance(5.0F).setHarvestLevelBase("pickaxe", 2));
+    public static Block MITHRIL_BLOCK = registerBlock(new BlockBase(Material.IRON, "mithril_block").setHardness(3.0F).setResistance(5.0F).setHarvestLevelBase("pickaxe", 2));
+    public static Block ORE_EDELILA = registerBlock(new OreEdelila());
+    public static Block ORE_MITHRIL = registerBlock(new BlockBase(Material.ROCK, "ore_mithril").setHardness(3.0F).setResistance(5.0F).setHarvestLevelBase("pickaxe", 2));
+
+    private static Block registerBlock(Block block)
+    {
+        BLOCKS.put(block.getRegistryName().getResourcePath(), block);
+        return block;
+    }
 
     public static void register(IForgeRegistry<Block> registry)
     {
         registry.registerAll(
-            EDELILA_BLOCK,
-            MITHRIL_BLOCK,
-            ORE_EDELILA,
-            ORE_MITHRIL
+            BLOCKS.values().toArray(new Block[BLOCKS.size()])
         );
     }
 
     public static void registerItemBlocks(IForgeRegistry<Item> registry)
     {
+        ArrayList<Item> itemBlocks = new ArrayList<Item>();
+
+        for (Block block : BLOCKS.values())
+        {
+            itemBlocks.add(createItemBlock(block));
+        }
+
         registry.registerAll(
-            createItemBlock(EDELILA_BLOCK),
-            createItemBlock(MITHRIL_BLOCK),
-            createItemBlock(ORE_EDELILA),
-            createItemBlock(ORE_MITHRIL)
+            itemBlocks.toArray(new Item[BLOCKS.size()])
         );
     }
 
     public static void registerModels()
     {
-        EDELILA_BLOCK.registerItemModel(Item.getItemFromBlock(EDELILA_BLOCK));
-        MITHRIL_BLOCK.registerItemModel(Item.getItemFromBlock(MITHRIL_BLOCK));
-        ORE_EDELILA.registerItemModel(Item.getItemFromBlock(ORE_EDELILA));
-        ORE_MITHRIL.registerItemModel(Item.getItemFromBlock(ORE_MITHRIL));
+        for (String name : BLOCKS.keySet())
+        {
+            Craftmancy.proxy.registerItemRenderer(Item.getItemFromBlock(BLOCKS.get(name)), 0, name);
+        }
     }
 
     private static Item createItemBlock(Block block)

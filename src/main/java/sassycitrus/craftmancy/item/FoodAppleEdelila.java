@@ -28,11 +28,6 @@ public class FoodAppleEdelila extends ItemFood
         setAlwaysEdible();
     }
 
-    public void registerItemModel()
-    {
-        Craftmancy.proxy.registerItemRenderer(this, 0, NAME);
-    }
-
     @Override
     protected void onFoodEaten(ItemStack stack, World world, EntityPlayer player)
     {

@@ -32,11 +32,6 @@ public class ItemBase extends Item
         return this;
     }
 
-    public void registerItemModel()
-    {
-        Craftmancy.proxy.registerItemRenderer(this, 0, name);
-    }
-
     @Override
     public EnumRarity getRarity(ItemStack stack)
     {

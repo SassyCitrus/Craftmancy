@@ -7,7 +7,6 @@ import javax.annotation.Nullable;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import sassycitrus.craftmancy.Craftmancy;
@@ -44,11 +43,6 @@ public class BlockBase extends Block
     {
         this.setHarvestLevel(tool, level);
         return this;
-    }
-
-    public void registerItemModel(Item itemBlock)
-    {
-        Craftmancy.proxy.registerItemRenderer(itemBlock, 0, name);
     }
 
     @Override
