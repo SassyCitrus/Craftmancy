@@ -15,6 +15,7 @@ import sassycitrus.craftmancy.capability.ManaCapabilityHandler;
 import sassycitrus.craftmancy.init.CraftmancyBlocks;
 import sassycitrus.craftmancy.init.CraftmancyItems;
 import sassycitrus.craftmancy.init.CraftmancyRecipes;
+import sassycitrus.craftmancy.init.CraftmancyWandParts;
 import sassycitrus.craftmancy.proxy.CommonProxy;
 import sassycitrus.craftmancy.world.CraftmancyWorldGen;
 
@@ -39,6 +40,7 @@ public class Craftmancy
         System.out.println(name + " is loading!");
         GameRegistry.registerWorldGenerator(new CraftmancyWorldGen(), 3);
         ManaCapabilityHandler.register();
+        CraftmancyWandParts.register();
     }
 
     @Mod.EventHandler
