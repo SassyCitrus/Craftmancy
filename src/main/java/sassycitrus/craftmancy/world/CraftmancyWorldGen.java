@@ -38,7 +38,7 @@ public class CraftmancyWorldGen implements IWorldGenerator
 
     private void generateNether(Random random, int chunkX, int chunkZ, World world, IChunkGenerator generator, IChunkProvider provider)
     {
-        generateOre(CraftmancyBlocks.ORE_FEUERMIN.getDefaultState(), world, random, chunkX * 16, chunkZ * 16, 32, 95, 2 + random.nextInt(4), 12, BlockMatcher.forBlock(Blocks.NETHERRACK));
+        generateOre(CraftmancyBlocks.ORE_FEUERMIN.getDefaultState(), world, random, chunkX * 16, chunkZ * 16, 32, 95, 2 + random.nextInt(4), 20, BlockMatcher.forBlock(Blocks.NETHERRACK));
     }
 
     private void generateOre(IBlockState ore, World world, Random random, int x, int z, int minY, int maxY, int size, int chances, Predicate<IBlockState> predicate)
