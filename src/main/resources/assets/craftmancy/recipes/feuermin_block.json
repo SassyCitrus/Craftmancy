@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "FFF",
+        "FFF",
+        "FFF"
+    ],
+    "key": {
+        "F": {
+            "item": "craftmancy:feuermin"
+        }
+    },
+    "result": {
+        "item": "craftmancy:feuermin_block"
+    }
+}
