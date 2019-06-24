@@ -15,6 +15,12 @@ public class ArcaneTable extends BlockTileEntityBase<TileEntity>
     }
 
     @Override
+    public Class<TileEntity> getTileEntityClass()
+    {
+        return null;
+    }
+
+    @Override
     public TileEntity createTileEntity(World world, IBlockState state)
     {
         return null;
