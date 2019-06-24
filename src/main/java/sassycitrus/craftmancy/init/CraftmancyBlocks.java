@@ -7,8 +7,10 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraftforge.registries.IForgeRegistry;
 import sassycitrus.craftmancy.Craftmancy;
+import sassycitrus.craftmancy.block.ArcaneTable;
 import sassycitrus.craftmancy.block.BlockBase;
 import sassycitrus.craftmancy.block.ore.OreEdelila;
 import sassycitrus.craftmancy.block.ore.OreFeuermin;
@@ -24,6 +26,7 @@ public class CraftmancyBlocks
     public static Block ORE_EDELILA = registerBlock(new OreEdelila());
     public static Block ORE_MITHRIL = registerBlock(new BlockBase(Material.ROCK, "ore_mithril").setHardness(3.0F).setResistance(5.0F).setHarvestLevelBase("pickaxe", 2));
     public static Block ORE_FEUERMIN = registerBlock(new OreFeuermin());
+    public static Block ARCANE_TABLE = registerBlock(new ArcaneTable());
 
     private static Block registerBlock(Block block)
     {
