@@ -7,7 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.util.BlockRenderLayer;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 import sassycitrus.craftmancy.Craftmancy;
 import sassycitrus.craftmancy.block.ArcaneTable;
@@ -39,6 +39,8 @@ public class CraftmancyBlocks
         registry.registerAll(
             BLOCKS.values().toArray(new Block[BLOCKS.size()])
         );
+
+        GameRegistry.registerTileEntity(((ArcaneTable) ARCANE_TABLE).getTileEntityClass(), ARCANE_TABLE.getRegistryName());
     }
 
     public static void registerItemBlocks(IForgeRegistry<Item> registry)
