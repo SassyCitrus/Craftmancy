@@ -60,7 +60,7 @@ public abstract class BlockTileEntityBase<TE extends TileEntity> extends BlockBa
     }
 
     @Override
-    public boolean hasTileEntity()
+    public boolean hasTileEntity(IBlockState state)
     {
         return true;
     }
