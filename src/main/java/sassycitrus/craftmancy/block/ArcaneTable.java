@@ -2,11 +2,11 @@ package sassycitrus.craftmancy.block;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.world.World;
+import sassycitrus.craftmancy.tileentity.TEArcaneTable;
 
-public class ArcaneTable extends BlockTileEntityBase<TileEntity>
+public class ArcaneTable extends BlockTileEntityBase<TEArcaneTable>
 {
     public ArcaneTable()
     {
@@ -15,15 +15,15 @@ public class ArcaneTable extends BlockTileEntityBase<TileEntity>
     }
 
     @Override
-    public Class<TileEntity> getTileEntityClass()
+    public Class<TEArcaneTable> getTileEntityClass()
     {
-        return null;
+        return TEArcaneTable.class;
     }
 
     @Override
-    public TileEntity createTileEntity(World world, IBlockState state)
+    public TEArcaneTable createTileEntity(World world, IBlockState state)
     {
-        return null;
+        return new TEArcaneTable();
     }
 
     @Override
