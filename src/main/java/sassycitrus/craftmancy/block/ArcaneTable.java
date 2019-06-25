@@ -1,5 +1,7 @@
 package sassycitrus.craftmancy.block;
 
+import javax.annotation.Nullable;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockRenderLayer;
@@ -20,7 +22,8 @@ public class ArcaneTable extends BlockTileEntityBase<TEArcaneTable>
         return TEArcaneTable.class;
     }
 
-    @Override
+    @Nullable
+	@Override
     public TEArcaneTable createTileEntity(World world, IBlockState state)
     {
         return new TEArcaneTable();

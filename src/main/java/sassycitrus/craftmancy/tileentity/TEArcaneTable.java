@@ -6,10 +6,6 @@ import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 
 public class TEArcaneTable extends TileEntityBase
 {
-    public TEArcaneTable()
-    {
-        super();
-    }
 
     @Override
     public NBTTagCompound writeToNBT(NBTTagCompound nbt)
@@ -30,6 +26,6 @@ public class TEArcaneTable extends TileEntityBase
     {
         NBTTagCompound nbt = packet.getNbtCompound();
         readFromNBT(nbt);
-        markDirty();   
+        markDirty();
     }
 }
