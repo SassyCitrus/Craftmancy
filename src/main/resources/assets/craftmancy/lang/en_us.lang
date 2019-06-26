@@ -16,4 +16,8 @@ item.feuermin.name=Feuermin
 item.ingot_mithril.name=Mithril Ingot
 item.ingot_feuersteel.name=Feuersteel Ingot
 item.apple_edelila.name=Edelila Apple
-item.wand.name=Wand
+
+item.wand_tier_0.name=Wand (Tier 0)
+item.wand_tier_1.name=Wand (Tier 1)
+item.wand_tier_2.name=Wand (Tier 2)
+item.wand_tier_3.name=Wand (Tier 3)
