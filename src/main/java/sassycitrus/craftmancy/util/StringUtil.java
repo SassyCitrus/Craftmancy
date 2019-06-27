@@ -3,6 +3,9 @@ package sassycitrus.craftmancy.util;
 import org.lwjgl.input.Keyboard;
 
 import net.minecraft.client.resources.I18n;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 
 public class StringUtil
@@ -25,5 +28,17 @@ public class StringUtil
     public static String shiftForDetails()
     {
         return localize("info.craftmancy.holdShiftForDetails");
+    }
+
+    public static void sendMessage(EntityPlayer player, String translationKey, Object... args)
+    {
+        TextComponentTranslation text = new TextComponentTranslation(translationKey, args);
+        player.sendMessage(text);
+    }
+
+    public static void sendMessage(EntityPlayer player, String msg)
+    {
+        TextComponentString text = new TextComponentString(msg);
+        player.sendMessage(text);
     }
 }
