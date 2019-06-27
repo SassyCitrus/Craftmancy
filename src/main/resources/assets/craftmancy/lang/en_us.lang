@@ -11,6 +11,8 @@ tile.mithril_block.name=Mithril Block
 tile.feuermin_block.name=Feuermin Block
 tile.feuersteel_block.name=Feuersteel Block
 
+tile.arcane_table.name=Arcane Workbench
+
 item.gem_edelila.name=Edelila
 item.feuermin.name=Feuermin
 item.ingot_mithril.name=Mithril Ingot
