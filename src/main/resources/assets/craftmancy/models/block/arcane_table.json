@@ -3,7 +3,7 @@
 	"textures": {
 		"book": "craftmancy:blocks/arcane_table/book",
 		"particle": "craftmancy:blocks/arcane_table/book",
-		"wood": "craftmancy:blocks/arcane_table/wood",
+		"wood": "minecraft:blocks/planks_oak",
 		"top": "craftmancy:blocks/arcane_table/top",
 		"potion": "craftmancy:blocks/arcane_table/potion",
 		"potion_overlay": "craftmancy:blocks/arcane_table/potion_overlay",

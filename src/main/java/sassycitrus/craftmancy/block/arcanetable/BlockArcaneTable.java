@@ -19,9 +19,6 @@ import sassycitrus.craftmancy.util.StringUtil;
 
 public class BlockArcaneTable extends BlockTileEntityBase<TEArcaneTable>
 {
-    public static final float GRID_OFFSET = 5/16F;
-    public static final float GRID_SLOT_SIZE = 2/16F;
-
     public BlockArcaneTable()
     {
         super(Material.WOOD, "arcane_table");
