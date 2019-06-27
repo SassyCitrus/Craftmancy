@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 
 public abstract class BlockTileEntityBase<TE extends TileEntity> extends BlockBase
 {
-    public static final PropertyDirection FACING = PropertyDirection.create("facing");
+    public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 
     public BlockTileEntityBase(Material material, String name)
     {
@@ -37,14 +37,16 @@ public abstract class BlockTileEntityBase<TE extends TileEntity> extends BlockBa
     }
 
     @Override
-    public IBlockState getStateFromMeta(int meta) {
+    public IBlockState getStateFromMeta(int meta)
+    {
         return getDefaultState()
-                .withProperty(FACING, EnumFacing.getFront(meta & 7));
+                .withProperty(FACING, EnumFacing.getHorizontal(meta & 5));
     }
 
     @Override
-    public int getMetaFromState(IBlockState state) {
-        return state.getValue(FACING).getIndex();
+    public int getMetaFromState(IBlockState state)
+    {
+        return state.getValue(FACING).getHorizontalIndex();
     }
 
     @Override
