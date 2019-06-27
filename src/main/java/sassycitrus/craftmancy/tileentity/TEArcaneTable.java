@@ -3,6 +3,7 @@ package sassycitrus.craftmancy.tileentity;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
+import net.minecraftforge.items.ItemStackHandler;
 
 public class TEArcaneTable extends TileEntityBase
 {
@@ -27,5 +28,19 @@ public class TEArcaneTable extends TileEntityBase
         NBTTagCompound nbt = packet.getNbtCompound();
         readFromNBT(nbt);
         markDirty();
+    }
+
+    private static class ArcaneTableInventory extends ItemStackHandler
+    {
+        public ArcaneTableInventory()
+        {
+            super(9);
+        }
+
+        @Override
+        public int getSlotLimit(int slot)
+        {
+            return 1;
+        }
     }
 }
