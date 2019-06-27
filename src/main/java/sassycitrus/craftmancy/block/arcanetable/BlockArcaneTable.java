@@ -11,7 +11,9 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import sassycitrus.craftmancy.Craftmancy;
 import sassycitrus.craftmancy.block.BlockTileEntityBase;
+import sassycitrus.craftmancy.gui.CraftmancyGuiHandler;
 import sassycitrus.craftmancy.item.tool.Wand;
 import sassycitrus.craftmancy.util.StringUtil;
 
@@ -59,13 +61,17 @@ public class BlockArcaneTable extends BlockTileEntityBase<TEArcaneTable>
 
         if (item instanceof Wand)
         {
-            if (!world.isRemote )
+            if (!world.isRemote)
             {
                 Wand wand = (Wand) item;
                 StringUtil.sendMessage(player, "Activated with tier " + wand.getTier() + " wand.");
             }
 
             return true;
+        }
+        else if (!world.isRemote)
+        {
+            player.openGui(Craftmancy.modid, CraftmancyGuiHandler.ARCANE_TABLE, world, pos.getX(), pos.getY(), pos.getZ());
         }
 
         return false;
