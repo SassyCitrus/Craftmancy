@@ -4,12 +4,22 @@ import javax.annotation.Nullable;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import sassycitrus.craftmancy.item.tool.Wand;
 import sassycitrus.craftmancy.tileentity.TEArcaneTable;
+import sassycitrus.craftmancy.util.StringUtil;
 
 public class ArcaneTable extends BlockTileEntityBase<TEArcaneTable>
 {
+    public static final float GRID_OFFSET = 5/16F;
+    public static final float GRID_SLOT_SIZE = 2/16F;
+
     public ArcaneTable()
     {
         super(Material.WOOD, "arcane_table");
@@ -39,5 +49,25 @@ public class ArcaneTable extends BlockTileEntityBase<TEArcaneTable>
     public BlockRenderLayer getBlockLayer()
     {
         return BlockRenderLayer.CUTOUT;
+    }
+
+    @Override
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player,
+            EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
+    {
+        Item item = player.getHeldItem(hand).getItem();
+
+        if (item instanceof Wand)
+        {
+            if (!world.isRemote )
+            {
+                Wand wand = (Wand) item;
+                StringUtil.sendMessage(player, "Activated with tier " + wand.getTier() + " wand.");
+            }
+
+            return true;
+        }
+
+        return false;
     }
 }
