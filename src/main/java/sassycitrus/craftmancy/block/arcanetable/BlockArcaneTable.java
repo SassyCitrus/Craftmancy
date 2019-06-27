@@ -1,4 +1,4 @@
-package sassycitrus.craftmancy.block;
+package sassycitrus.craftmancy.block.arcanetable;
 
 import javax.annotation.Nullable;
 
@@ -11,16 +11,16 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import sassycitrus.craftmancy.block.BlockTileEntityBase;
 import sassycitrus.craftmancy.item.tool.Wand;
-import sassycitrus.craftmancy.tileentity.TEArcaneTable;
 import sassycitrus.craftmancy.util.StringUtil;
 
-public class ArcaneTable extends BlockTileEntityBase<TEArcaneTable>
+public class BlockArcaneTable extends BlockTileEntityBase<TEArcaneTable>
 {
     public static final float GRID_OFFSET = 5/16F;
     public static final float GRID_SLOT_SIZE = 2/16F;
 
-    public ArcaneTable()
+    public BlockArcaneTable()
     {
         super(Material.WOOD, "arcane_table");
         setHardness(2.5F);

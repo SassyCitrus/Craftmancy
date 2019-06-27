@@ -10,8 +10,8 @@ import net.minecraft.item.ItemBlock;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 import sassycitrus.craftmancy.Craftmancy;
-import sassycitrus.craftmancy.block.ArcaneTable;
 import sassycitrus.craftmancy.block.BlockBase;
+import sassycitrus.craftmancy.block.arcanetable.BlockArcaneTable;
 import sassycitrus.craftmancy.block.ore.OreEdelila;
 import sassycitrus.craftmancy.block.ore.OreFeuermin;
 
@@ -26,7 +26,7 @@ public class CraftmancyBlocks
     public static Block ORE_EDELILA = registerBlock(new OreEdelila());
     public static Block ORE_MITHRIL = registerBlock(new BlockBase(Material.ROCK, "ore_mithril").setHardness(3.0F).setResistance(5.0F).setHarvestLevelBase("pickaxe", 2));
     public static Block ORE_FEUERMIN = registerBlock(new OreFeuermin());
-    public static Block ARCANE_TABLE = registerBlock(new ArcaneTable());
+    public static Block ARCANE_TABLE = registerBlock(new BlockArcaneTable());
 
     private static Block registerBlock(Block block)
     {
@@ -40,7 +40,7 @@ public class CraftmancyBlocks
             BLOCKS.values().toArray(new Block[BLOCKS.size()])
         );
 
-        GameRegistry.registerTileEntity(((ArcaneTable) ARCANE_TABLE).getTileEntityClass(), ARCANE_TABLE.getRegistryName());
+        GameRegistry.registerTileEntity(((BlockArcaneTable) ARCANE_TABLE).getTileEntityClass(), ARCANE_TABLE.getRegistryName());
     }
 
     public static void registerItemBlocks(IForgeRegistry<Item> registry)
