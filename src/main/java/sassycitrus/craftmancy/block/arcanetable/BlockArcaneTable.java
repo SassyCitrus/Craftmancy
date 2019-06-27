@@ -56,21 +56,19 @@ public class BlockArcaneTable extends BlockTileEntityBase<TEArcaneTable>
     {
         Item item = player.getHeldItem(hand).getItem();
 
-        if (item instanceof Wand)
+        if (!world.isRemote)
         {
-            if (!world.isRemote)
+            if (item instanceof Wand)
             {
                 Wand wand = (Wand) item;
                 StringUtil.sendMessage(player, "Activated with tier " + wand.getTier() + " wand.");
             }
-
-            return true;
-        }
-        else if (!world.isRemote)
-        {
-            player.openGui(Craftmancy.modid, CraftmancyGuiHandler.ARCANE_TABLE, world, pos.getX(), pos.getY(), pos.getZ());
+            else
+            {
+                player.openGui(Craftmancy.modid, CraftmancyGuiHandler.ARCANE_TABLE, world, pos.getX(), pos.getY(), pos.getZ());
+            }
         }
 
-        return false;
+        return true;
     }
 }
