@@ -1,4 +1,4 @@
-package sassycitrus.craftmancy.tileentity;
+package sassycitrus.craftmancy.block;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;

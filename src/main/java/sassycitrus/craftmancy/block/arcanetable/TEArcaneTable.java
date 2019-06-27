@@ -1,9 +1,10 @@
-package sassycitrus.craftmancy.tileentity;
+package sassycitrus.craftmancy.block.arcanetable;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraftforge.items.ItemStackHandler;
+import sassycitrus.craftmancy.block.TileEntityBase;
 
 public class TEArcaneTable extends TileEntityBase
 {
