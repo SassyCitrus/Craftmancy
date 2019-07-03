@@ -40,7 +40,7 @@ public abstract class BlockTileEntityBase<TE extends TileEntity> extends BlockBa
     public IBlockState getStateFromMeta(int meta)
     {
         return getDefaultState()
-                .withProperty(FACING, EnumFacing.getHorizontal(meta & 5));
+                .withProperty(FACING, EnumFacing.getHorizontal(meta));
     }
 
     @Override
