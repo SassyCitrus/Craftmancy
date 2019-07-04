@@ -2,10 +2,14 @@ package sassycitrus.craftmancy.block.arcanetable;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.inventory.InventoryHelper;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
@@ -51,6 +55,19 @@ public class TEArcaneTable extends TileEntityBase
         T inv = (T) inventory;
 
         return capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY ? inv : super.getCapability(capability, facing);
+    }
+
+    public void dropInventoryItems(World world, BlockPos pos)
+    {
+        for (int i = 0; i < 9; i++)
+        {
+            ItemStack stack = inventory.getStackInSlot(i);
+
+            if (!stack.isEmpty())
+            {
+                InventoryHelper.spawnItemStack(world, (double)pos.getX(), (double)pos.getY(), (double)pos.getZ(), stack);
+            }
+        }
     }
 
     private static class ArcaneTableInventory extends ItemStackHandler

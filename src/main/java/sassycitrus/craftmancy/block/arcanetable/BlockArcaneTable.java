@@ -6,6 +6,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -70,5 +71,18 @@ public class BlockArcaneTable extends BlockTileEntityBase<TEArcaneTable>
         }
 
         return true;
+    }
+
+    @Override
+    public void breakBlock(World world, BlockPos pos, IBlockState state)
+    {
+        TileEntity te = world.getTileEntity(pos);
+
+        if (te instanceof TEArcaneTable)
+        {
+            ((TEArcaneTable) te).dropInventoryItems(world, pos);
+        }
+
+        super.breakBlock(world, pos, state);
     }
 }
