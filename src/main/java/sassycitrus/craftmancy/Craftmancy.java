@@ -1,6 +1,7 @@
 package sassycitrus.craftmancy;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
@@ -39,6 +40,8 @@ public class Craftmancy
     public void preInit(FMLPreInitializationEvent event)
     {
         System.out.println(name + " is loading!");
+
+        proxy.preInit(event);
         GameRegistry.registerWorldGenerator(new CraftmancyWorldGen(), 3);
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new CraftmancyGuiHandler());
         ManaCapabilityHandler.register();
