@@ -3,6 +3,7 @@ package sassycitrus.craftmancy;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -14,6 +15,7 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import sassycitrus.craftmancy.capability.ManaCapabilityHandler;
 import sassycitrus.craftmancy.gui.CraftmancyGuiHandler;
+import sassycitrus.craftmancy.gui.RenderGuiHandler;
 import sassycitrus.craftmancy.init.CraftmancyBlocks;
 import sassycitrus.craftmancy.init.CraftmancyItems;
 import sassycitrus.craftmancy.init.CraftmancyRecipes;
@@ -43,6 +45,7 @@ public class Craftmancy
         proxy.preInit(event);
         GameRegistry.registerWorldGenerator(new CraftmancyWorldGen(), 3);
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new CraftmancyGuiHandler());
+        MinecraftForge.EVENT_BUS.register(new RenderGuiHandler());
         ManaCapabilityHandler.register();
     }
 
