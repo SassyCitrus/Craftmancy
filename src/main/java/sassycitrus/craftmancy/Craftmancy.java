@@ -1,7 +1,6 @@
 package sassycitrus.craftmancy;
 
 import net.minecraft.block.Block;
-import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
@@ -52,6 +51,7 @@ public class Craftmancy
     {
         CraftmancyRecipes.registerSmelting();
         CraftmancyRecipes.registerOreDict();
+        CraftmancyRecipes.registerArcaneTableCrafting();
     }
 
     @Mod.EventHandler
