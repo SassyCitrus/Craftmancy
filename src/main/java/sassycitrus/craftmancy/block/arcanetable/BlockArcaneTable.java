@@ -20,7 +20,6 @@ import sassycitrus.craftmancy.crafting.ArcaneTableCraftingManager;
 import sassycitrus.craftmancy.crafting.ArcaneTableCraftingManager.ArcaneTableRecipe;
 import sassycitrus.craftmancy.gui.CraftmancyGuiHandler;
 import sassycitrus.craftmancy.item.tool.Wand;
-import sassycitrus.craftmancy.util.StringUtil;
 
 public class BlockArcaneTable extends BlockTileEntityBase<TEArcaneTable>
 {
