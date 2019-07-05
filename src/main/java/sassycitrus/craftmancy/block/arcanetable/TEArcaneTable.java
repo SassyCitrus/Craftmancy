@@ -22,14 +22,14 @@ public class TEArcaneTable extends TileEntityBase
     @Override
     public NBTTagCompound writeToNBT(NBTTagCompound nbt)
     {
-        nbt.setTag("inventory", inventory.serializeNBT());
+        nbt.setTag("inventory", this.inventory.serializeNBT());
         return super.writeToNBT(nbt);
     }
 
     @Override
     public void readFromNBT(NBTTagCompound nbt)
     {
-        inventory.deserializeNBT(nbt.getCompoundTag("inventory"));
+        this.inventory.deserializeNBT(nbt.getCompoundTag("inventory"));
         super.readFromNBT(nbt);
     }
 
@@ -52,16 +52,27 @@ public class TEArcaneTable extends TileEntityBase
     public <T> T getCapability(Capability<T> capability, EnumFacing facing)
     {
         @SuppressWarnings("unchecked")
-        T inv = (T) inventory;
+        T inv = (T) this.inventory;
 
         return capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY ? inv : super.getCapability(capability, facing);
+    }
+
+    public ItemStack[] getInventoryItems()
+    {
+        return this.inventory.getItemStacks();
+    }
+
+    public void clearInventory()
+    {
+        this.inventory.clear();
+        sendUpdates();
     }
 
     public void dropInventoryItems(World world, BlockPos pos)
     {
         for (int i = 0; i < 9; i++)
         {
-            ItemStack stack = inventory.getStackInSlot(i);
+            ItemStack stack = this.inventory.getStackInSlot(i);
 
             if (!stack.isEmpty())
             {
@@ -81,6 +92,26 @@ public class TEArcaneTable extends TileEntityBase
         public int getSlotLimit(int slot)
         {
             return 1;
+        }
+
+        public ItemStack[] getItemStacks()
+        {
+            ItemStack[] items = new ItemStack[9];
+
+            for (int i = 0; i < 9; i++)
+            {
+                items[i] = getStackInSlot(i).copy();
+            }
+
+            return items;
+        }
+
+        public void clear()
+        {
+            for (int i = 0; i < 9; i++)
+            {
+                this.setStackInSlot(i, ItemStack.EMPTY);
+            }
         }
     }
 }

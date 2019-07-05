@@ -4,8 +4,10 @@ import javax.annotation.Nullable;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
@@ -14,6 +16,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import sassycitrus.craftmancy.Craftmancy;
 import sassycitrus.craftmancy.block.BlockTileEntityBase;
+import sassycitrus.craftmancy.crafting.ArcaneTableCraftingManager;
+import sassycitrus.craftmancy.crafting.ArcaneTableCraftingManager.ArcaneTableRecipe;
 import sassycitrus.craftmancy.gui.CraftmancyGuiHandler;
 import sassycitrus.craftmancy.item.tool.Wand;
 import sassycitrus.craftmancy.util.StringUtil;
@@ -61,8 +65,22 @@ public class BlockArcaneTable extends BlockTileEntityBase<TEArcaneTable>
         {
             if (item instanceof Wand)
             {
-                Wand wand = (Wand) item;
-                StringUtil.sendMessage(player, "Activated with tier " + wand.getTier() + " wand.");
+                TileEntity te = world.getTileEntity(pos);
+
+                if (te instanceof TEArcaneTable)
+                {
+                    Wand wand = (Wand) item;
+                    ItemStack[] items = ((TEArcaneTable) te).getInventoryItems();
+                    ArcaneTableRecipe recipe = ArcaneTableCraftingManager.getRecipe(items);
+
+                    if (recipe != null && wand.getTier() >= recipe.getTier())
+                    {
+                        ((TEArcaneTable) te).clearInventory();
+                        EntityItem entityitem = new EntityItem(world, (double)pos.getX() + 0.5, (double)pos.getY() + 1, (double)pos.getZ() + 0.5, recipe.getOutput());
+                        entityitem.setDefaultPickupDelay();
+                        world.spawnEntity(entityitem);
+                    }
+                }
             }
             else
             {
