@@ -19,6 +19,7 @@ import sassycitrus.craftmancy.init.CraftmancyBlocks;
 import sassycitrus.craftmancy.init.CraftmancyCommands;
 import sassycitrus.craftmancy.init.CraftmancyItems;
 import sassycitrus.craftmancy.init.CraftmancyRecipes;
+import sassycitrus.craftmancy.network.Network;
 import sassycitrus.craftmancy.proxy.CommonProxy;
 import sassycitrus.craftmancy.world.CraftmancyWorldGen;
 
@@ -54,6 +55,7 @@ public class Craftmancy
         CraftmancyRecipes.registerSmelting();
         CraftmancyRecipes.registerOreDict();
         CraftmancyRecipes.registerArcaneTableCrafting();
+        Network.register();
     }
 
     @Mod.EventHandler
