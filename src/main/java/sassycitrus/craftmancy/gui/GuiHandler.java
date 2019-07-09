@@ -8,7 +8,7 @@ import sassycitrus.craftmancy.block.arcanetable.TEArcaneTable;
 import sassycitrus.craftmancy.gui.arcanetable.ContainerArcaneTable;
 import sassycitrus.craftmancy.gui.arcanetable.GuiArcaneTable;
 
-public class CraftmancyGuiHandler implements IGuiHandler
+public class GuiHandler implements IGuiHandler
 {
     public static final int ARCANE_TABLE = 0;
 
