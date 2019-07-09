@@ -22,7 +22,7 @@ import sassycitrus.craftmancy.network.Network;
 
 public class ManaCapabilityHandler
 {
-    private static final int DEFAULT_CAPACITY = 1000;
+    private static final int DEFAULT_CAPACITY = 10;
 
     @CapabilityInject(IManaHandler.class)
     public static final Capability<IManaHandler> CAPABILITY_MANA = null;
