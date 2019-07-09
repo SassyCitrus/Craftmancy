@@ -6,18 +6,20 @@ import javax.annotation.Nullable;
 
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.MobEffects;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import sassycitrus.craftmancy.Craftmancy;
+import sassycitrus.craftmancy.capability.ManaCapabilityHandler;
+import sassycitrus.craftmancy.capability.ManaCapabilityHandler.IManaHandler;
+import sassycitrus.craftmancy.network.Network;
 import sassycitrus.craftmancy.util.StringUtil;
 
 public class FoodAppleEdelila extends ItemFood
 {
     private static final String NAME = "apple_edelila";
+    private static final int MANA_GIVEN = 5;
 
     public FoodAppleEdelila()
     {
@@ -33,7 +35,9 @@ public class FoodAppleEdelila extends ItemFood
     {
         if (!world.isRemote)
         {
-            player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 600, 1));
+            IManaHandler playerMana = ManaCapabilityHandler.getHandler(player);
+            playerMana.addMana(MANA_GIVEN);
+            Network.syncPlayerMana(player);
         }
     }
     
