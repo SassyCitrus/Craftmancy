@@ -101,12 +101,22 @@ public class ManaCapabilityHandler
                 public void setMana(int mana)
                 {
                     this.mana = mana;
+
+                    if (this.mana > this.capacity)
+                    {
+                        this.mana = this.capacity;
+                    }
                 }
 
                 @Override
                 public void addMana(int mana)
                 {
                     this.mana += mana;
+
+                    if (this.mana > this.capacity)
+                    {
+                        this.mana = this.capacity;
+                    }
                 }
 
                 @Override
