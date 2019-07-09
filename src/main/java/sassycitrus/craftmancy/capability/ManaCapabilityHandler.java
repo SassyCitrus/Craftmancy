@@ -14,9 +14,12 @@ import net.minecraftforge.common.capabilities.CapabilityInject;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.common.capabilities.ICapabilitySerializable;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import sassycitrus.craftmancy.Craftmancy;
+import sassycitrus.craftmancy.network.MessagePlayerMana;
+import sassycitrus.craftmancy.network.Network;
 
 public class ManaCapabilityHandler
 {
@@ -37,6 +40,16 @@ public class ManaCapabilityHandler
         if (event.getObject() instanceof EntityPlayer)
         {
             event.addCapability(new ResourceLocation(Craftmancy.modid, "CAPABILITY_MANA"), new Provider());
+        }
+    }
+
+    @SubscribeEvent
+    public void entityJoinWorld(EntityJoinWorldEvent event)
+    {
+        if (event.getEntity() instanceof EntityPlayer && !event.getWorld().isRemote)
+        {
+            EntityPlayer player = (EntityPlayer) event.getEntity();
+            Network.syncPlayerMana(player);
         }
     }
 
