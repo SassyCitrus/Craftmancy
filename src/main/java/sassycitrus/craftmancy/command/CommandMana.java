@@ -8,7 +8,6 @@ import net.minecraft.command.ICommandSender;
 import net.minecraft.command.NumberInvalidException;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import sassycitrus.craftmancy.capability.ManaCapabilityHandler;
@@ -35,7 +34,7 @@ public class CommandMana extends CommandBase
     {
         if (sender instanceof EntityPlayer)
         {
-            IManaHandler player = ((EntityPlayer) sender).getCapability(ManaCapabilityHandler.CAPABILITY_MANA, EnumFacing.DOWN);
+            IManaHandler player = ManaCapabilityHandler.getHandler((EntityPlayer) sender);
 
             if (args.length > 0)
             {

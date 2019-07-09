@@ -77,7 +77,7 @@ public class BlockArcaneTable extends BlockTileEntityBase<TEArcaneTable>
 
                     if (recipe != null && wand.getTier() >= recipe.getTier())
                     {
-                        IManaHandler playerMana = player.getCapability(ManaCapabilityHandler.CAPABILITY_MANA, EnumFacing.DOWN);
+                        IManaHandler playerMana = ManaCapabilityHandler.getHandler(player);
 
                         if (playerMana.removeMana(recipe.getManaCost()))
                         {

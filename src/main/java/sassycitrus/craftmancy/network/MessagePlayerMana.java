@@ -3,7 +3,6 @@ package sassycitrus.craftmancy.network;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.EnumFacing;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
@@ -23,9 +22,9 @@ public class MessagePlayerMana implements IMessage, IMessageHandler<MessagePlaye
 
     public MessagePlayerMana(EntityPlayer player)
     {
-        if (player != null && player.hasCapability(ManaCapabilityHandler.CAPABILITY_MANA, EnumFacing.DOWN))
+        if (player != null)
         {
-            this.serverPlayer = player.getCapability(ManaCapabilityHandler.CAPABILITY_MANA, EnumFacing.DOWN);
+            this.serverPlayer = ManaCapabilityHandler.getHandler(player);
         }
     }
 
@@ -51,7 +50,7 @@ public class MessagePlayerMana implements IMessage, IMessageHandler<MessagePlaye
     {
         FMLCommonHandler.instance().getWorldThread(ctx.netHandler).addScheduledTask(() ->
         {
-            IManaHandler player = Minecraft.getMinecraft().player.getCapability(ManaCapabilityHandler.CAPABILITY_MANA, EnumFacing.DOWN);
+            IManaHandler player = ManaCapabilityHandler.getHandler(Minecraft.getMinecraft().player);
 
             if (player != null)
             {
