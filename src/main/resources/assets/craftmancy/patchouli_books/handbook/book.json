@@ -1,0 +1,9 @@
+{
+    "name": "Craftmancy Grimoire",
+    "subtitle": "The Magic of Crafting",
+    "landing_text": "LANDING TEXT",
+    "book_texture": "patchouli:textures/gui/book_red.png",
+    "model": "craftmancy:handbook",
+    "creative_tab": "craftmancy",
+    "show_progress": false
+}
