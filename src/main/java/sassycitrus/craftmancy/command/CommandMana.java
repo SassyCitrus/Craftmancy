@@ -13,6 +13,7 @@ import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import sassycitrus.craftmancy.capability.ManaCapabilityHandler;
 import sassycitrus.craftmancy.capability.ManaCapabilityHandler.IManaHandler;
+import sassycitrus.craftmancy.network.Network;
 
 public class CommandMana extends CommandBase
 {
@@ -63,6 +64,8 @@ public class CommandMana extends CommandBase
             }
 
             sender.sendMessage(new TextComponentString(TextFormatting.BLUE + "Mana" + TextFormatting.RESET + ": "  + player.getMana() + "/" + player.getCapacity()));
+
+            Network.syncPlayerMana((EntityPlayer) sender);
         }
     }
 }

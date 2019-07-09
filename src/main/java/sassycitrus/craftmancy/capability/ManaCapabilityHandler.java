@@ -18,7 +18,6 @@ import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import sassycitrus.craftmancy.Craftmancy;
-import sassycitrus.craftmancy.network.MessagePlayerMana;
 import sassycitrus.craftmancy.network.Network;
 
 public class ManaCapabilityHandler
