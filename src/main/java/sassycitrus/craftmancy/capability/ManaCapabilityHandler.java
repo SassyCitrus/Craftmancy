@@ -78,7 +78,7 @@ public class ManaCapabilityHandler
         int getMana();
         void setMana(int mana);
         void addMana(int mana);
-        void removeMana(int mana);
+        boolean removeMana(int mana);
     }
 
     public static class ManaFactory implements Callable<IManaHandler>
@@ -132,14 +132,21 @@ public class ManaCapabilityHandler
                 }
 
                 @Override
-                public void removeMana(int mana)
+                public boolean removeMana(int mana)
                 {
+                    if (this.mana < mana)
+                    {
+                        return false;
+                    }
+
                     this.mana -= mana;
 
                     if (this.mana < 0)
                     {
                         this.mana = 0;
                     }
+
+                    return true;
                 }
             };
 
