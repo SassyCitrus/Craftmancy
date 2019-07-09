@@ -24,7 +24,8 @@ public class CraftmancyRecipes
     {
         ArcaneTableCraftingManager.addRecipe
         (
-            new ItemStack(CraftmancyItems.WAND_TIER_1), 0,
+            new ItemStack(CraftmancyItems.WAND_TIER_1),
+            0, 10,
             ItemStack.EMPTY, ItemStack.EMPTY, new ItemStack(Items.DIAMOND),
             ItemStack.EMPTY, new ItemStack(Items.STICK), ItemStack.EMPTY,
             new ItemStack(Items.IRON_INGOT), ItemStack.EMPTY, ItemStack.EMPTY

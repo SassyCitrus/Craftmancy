@@ -16,10 +16,13 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import sassycitrus.craftmancy.Craftmancy;
 import sassycitrus.craftmancy.block.BlockTileEntityBase;
+import sassycitrus.craftmancy.capability.ManaCapabilityHandler;
+import sassycitrus.craftmancy.capability.ManaCapabilityHandler.IManaHandler;
 import sassycitrus.craftmancy.crafting.ArcaneTableCraftingManager;
 import sassycitrus.craftmancy.crafting.ArcaneTableCraftingManager.ArcaneTableRecipe;
 import sassycitrus.craftmancy.gui.GuiHandler;
 import sassycitrus.craftmancy.item.tool.Wand;
+import sassycitrus.craftmancy.network.Network;
 
 public class BlockArcaneTable extends BlockTileEntityBase<TEArcaneTable>
 {
@@ -74,10 +77,16 @@ public class BlockArcaneTable extends BlockTileEntityBase<TEArcaneTable>
 
                     if (recipe != null && wand.getTier() >= recipe.getTier())
                     {
-                        ((TEArcaneTable) te).clearInventory();
-                        EntityItem entityitem = new EntityItem(world, (double)pos.getX() + 0.5, (double)pos.getY() + 1, (double)pos.getZ() + 0.5, recipe.getOutput());
-                        entityitem.setDefaultPickupDelay();
-                        world.spawnEntity(entityitem);
+                        IManaHandler playerMana = player.getCapability(ManaCapabilityHandler.CAPABILITY_MANA, EnumFacing.DOWN);
+
+                        if (playerMana.removeMana(recipe.getManaCost()))
+                        {
+                            Network.syncPlayerMana(player);
+                            ((TEArcaneTable) te).clearInventory();
+                            EntityItem entityitem = new EntityItem(world, (double)pos.getX() + 0.5, (double)pos.getY() + 1, (double)pos.getZ() + 0.5, recipe.getOutput());
+                            entityitem.setDefaultPickupDelay();
+                            world.spawnEntity(entityitem);
+                        }
                     }
                 }
             }

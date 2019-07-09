@@ -11,9 +11,9 @@ public class ArcaneTableCraftingManager
 {
     private static HashMap<String,ArcaneTableRecipe> recipes = new HashMap<String,ArcaneTableRecipe>();
 
-    public static void addRecipe(ItemStack output, int tier, ItemStack... ingredients)
+    public static void addRecipe(ItemStack output, int tier, int cost, ItemStack... ingredients)
     {
-        ArcaneTableRecipe recipe = new ArcaneTableRecipe(output, tier, ingredients);
+        ArcaneTableRecipe recipe = new ArcaneTableRecipe(output, tier, cost, ingredients);
         recipes.put(recipe.toString(), recipe);
     }
 
@@ -28,12 +28,14 @@ public class ArcaneTableCraftingManager
         private ItemStack[] ingredients;
         private ItemStack output;
         private int tier;
+        private int manaCost;
 
-        public ArcaneTableRecipe(ItemStack output, int tier, ItemStack... ingredients)
+        public ArcaneTableRecipe(ItemStack output, int tier, int cost, ItemStack... ingredients)
         {
             this.ingredients = ingredients;
             this.output = output;
             this.tier = tier;
+            this.manaCost = cost;
         }
 
         public ItemStack getOutput()
@@ -44,6 +46,11 @@ public class ArcaneTableCraftingManager
         public int getTier()
         {
             return this.tier;
+        }
+
+        public int getManaCost()
+        {
+            return this.manaCost;
         }
 
         public static String createKey(ItemStack[] ingredients)
