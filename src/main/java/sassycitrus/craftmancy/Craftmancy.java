@@ -9,12 +9,14 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import sassycitrus.craftmancy.capability.ManaCapabilityHandler;
 import sassycitrus.craftmancy.gui.CraftmancyGuiHandler;
 import sassycitrus.craftmancy.init.CraftmancyBlocks;
+import sassycitrus.craftmancy.init.CraftmancyCommands;
 import sassycitrus.craftmancy.init.CraftmancyItems;
 import sassycitrus.craftmancy.init.CraftmancyRecipes;
 import sassycitrus.craftmancy.proxy.CommonProxy;
@@ -58,6 +60,12 @@ public class Craftmancy
     public void postInit(FMLPostInitializationEvent event)
     {
 
+    }
+
+    @Mod.EventHandler
+    public void serverStarting(FMLServerStartingEvent event)
+    {
+        CraftmancyCommands.register(event);
     }
 
     @Mod.EventBusSubscriber
