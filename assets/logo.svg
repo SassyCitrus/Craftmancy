@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="256"
+   height="128"
+   viewBox="0 0 67.733332 33.866668"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 5da689c313, 2019-01-14"
+   sodipodi:docname="logo.svg"
+   inkscape:export-filename="/home/tryton-vanmeer/Code/Minecraft/Craftmancy/src/main/resources/assets/craftmancy/logo.png"
+   inkscape:export-xdpi="93.090919"
+   inkscape:export-ydpi="93.090919">
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient865">
+      <stop
+         style="stop-color:#eeeeee;stop-opacity:1;"
+         offset="0"
+         id="stop861" />
+      <stop
+         style="stop-color:#eeeeee;stop-opacity:0;"
+         offset="1"
+         id="stop863" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient865"
+       id="linearGradient867"
+       x1="2.645745"
+       y1="269.29656"
+       x2="65.087405"
+       y2="269.29656"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2"
+     inkscape:cx="284.68057"
+     inkscape:cy="10.974504"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:pagecheckerboard="false"
+     inkscape:window-width="2560"
+     inkscape:window-height="1019"
+     inkscape:window-x="1920"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-263.13332)">
+    <rect
+       style="opacity:1;fill:#a02f30;fill-opacity:1;stroke:none;stroke-width:0.21570243;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1414"
+       width="67.73333"
+       height="33.866665"
+       x="0.52916664"
+       y="263.13333"
+       inkscape:export-filename="/home/tryton-vanmeer/Code/Minecraft/Craftmancy/src/main/resources/assets/craftmancy/rect1414.png"
+       inkscape:export-xdpi="93.04615"
+       inkscape:export-ydpi="93.04615" />
+    <rect
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#6a0a32;stroke-width:1.05833328;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1414-6"
+       width="67.73333"
+       height="33.866665"
+       x="0.52916664"
+       y="263.13333" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46666622px;line-height:1.25;font-family:Minecraftia;-inkscape-font-specification:Minecraftia;letter-spacing:0px;word-spacing:0px;fill:#eeeeee;fill-opacity:1;stroke:none;stroke-width:0.26458403"
+       x="3.1749084"
+       y="278.29239"
+       id="text1479"
+       transform="scale(1.0000027,0.9999973)"><tspan
+         sodipodi:role="line"
+         id="tspan1477"
+         x="3.1749084"
+         y="278.29239"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46666622px;font-family:Minecraftia;-inkscape-font-specification:Minecraftia;fill:#eeeeee;fill-opacity:1;stroke-width:0.26458403">CRAFTMANCY</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.28888893px;line-height:1.25;font-family:'Eagle Lake';-inkscape-font-specification:'Eagle Lake';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="7.6118069"
+       y="281.76562"
+       id="text821"><tspan
+         sodipodi:role="line"
+         id="tspan819"
+         x="7.6118069"
+         y="291.34387"
+         style="stroke-width:0.26458332" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;line-height:1.25;font-family:'Eagle Lake';-inkscape-font-specification:'Eagle Lake';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="9.6831465"
+       y="281.03064"
+       id="text825"><tspan
+         sodipodi:role="line"
+         id="tspan823"
+         x="9.6831465"
+         y="285.81976"
+         style="stroke-width:0.26458332"></tspan></text>
+    <g
+       id="g1650"
+       transform="translate(-14.229038,1.9747353)">
+      <image
+         width="16.933332"
+         height="16.933332"
+         preserveAspectRatio="none"
+         style="image-rendering:optimizeSpeed"
+         xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAFBJREFU
+OI1jYBgFFANGQgrs7e1ZDvOb/WZgYGD4t6kbQz0TIQMO85v9jqjqIs95cFv8Sv9TZgJdAUXOZfIr
+/R914v9/sgyhSDPMgCEW2lAAAHIiHMOL6kbvAAAAAElFTkSuQmCC
+"
+         id="image1628"
+         x="16.229038"
+         y="276.09192" />
+      <g
+         id="g1644">
+        <image
+           y="276.09192"
+           x="16.229038"
+           id="image1617"
+           xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAD1JREFU
+OI1jYBgFtAf29vYsA2e7p5no/ww/uf/41DDh0ywvwcnw8MV3vJYwEtK8/dRrrGrwuoBYzaOASgAA
+ba0VLWfZ4Y0AAAAASUVORK5CYII=
+"
+           style="image-rendering:optimizeSpeed"
+           preserveAspectRatio="none"
+           height="16.933332"
+           width="16.933332" />
+        <image
+           y="276.09192"
+           x="16.229038"
+           id="image1639"
+           xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAGBJREFU
+OI1jYBhowEisQmmG4P8w9lOGtXB9LMRqTnRcwKDryMzAwMDAUFTH8B9mCBOxLtizfzvD5f1/GRR0
+2YnVAgH29vZwV1owrPpf4/j5P7J3SALSDMHkax4FowAfAACoRxhXKeT7hQAAAABJRU5ErkJggg==
+"
+           style="image-rendering:optimizeSpeed"
+           preserveAspectRatio="none"
+           height="16.933332"
+           width="16.933332" />
+      </g>
+    </g>
+    <image
+       y="278.06625"
+       x="25.4"
+       id="image1660"
+       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAOBJREFU
+OI3NkTELAWEcxn8nw23GK1J8AKUMNh/ApG4wM2C02QxGk0X5EJTJpK7MDDpZJFLUuenK4AbORPK+
+d5eJZ3vf5//83vfpD7+W4mck0L3385GRdDbqF55vhvRrFwC26zMzC08GifiFD6v7625nLShoXWJk
+vM/5SFj4HVLUxgJEqHBY3ek19gA0BykApga42OyshQAWKnxqb7oAXDlJ/VBAmAIBz9efSmu5739g
+GjcclqjEpb6w1wS6l6SMi/3qrRKn1alQb+dxMJVAgAyS1apMrJIQ9gUAwr5l4f/QAy2XVNb4oiL6
+AAAAAElFTkSuQmCC
+"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="16.933332"
+       width="16.933332" />
+    <g
+       id="g1731"
+       transform="translate(1.5623389,0.3070717)">
+      <image
+         transform="scale(-1,1)"
+         width="16.933332"
+         height="16.933332"
+         preserveAspectRatio="none"
+         style="image-rendering:optimizeSpeed"
+         xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAADpJREFU
+OI1jYBgFtAf29vYsLzeK/n+5UfQ/WQa83Cj6/+/XePINgBlCtmb6A4r9SnaAURzaFMX1gAIAAxoq
+2lRsKtgAAAAASUVORK5CYII=
+"
+         id="image1671"
+         x="-64.219994"
+         y="277.75958" />
+      <g
+         id="g1725">
+        <image
+           y="277.75958"
+           x="-64.219994"
+           id="image1709"
+           xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAFRJREFU
+OI1jYBhowEi0ymCG/3D2WhL0wTSL30363/Rt7f+mb2v/IxvGRKwZL+dtY5j6fCuDLrsCaZbb29uz
+wDnVEv/F7yahuIA0EMxAgeZRMArwAABM3hqlLKqP1AAAAABJRU5ErkJggg==
+"
+           style="image-rendering:optimizeSpeed"
+           preserveAspectRatio="none"
+           height="16.933332"
+           width="16.933332"
+           transform="scale(-1,1)" />
+        <image
+           y="277.75958"
+           x="-64.219994"
+           id="image1720"
+           xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAD1JREFU
+OI1jYBgFtAf29vYsA2e7p5no/ww/uf/41DDh0ywvwcnw8MV3vJYwEtK8/dRrrGrwuoBYzaOASgAA
+ba0VLWfZ4Y0AAAAASUVORK5CYII=
+"
+           style="image-rendering:optimizeSpeed"
+           preserveAspectRatio="none"
+           height="16.933332"
+           width="16.933332"
+           transform="scale(-1,1)" />
+      </g>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;line-height:1.25;font-family:Minecraftia;-inkscape-font-specification:Minecraftia;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;"
+       x="15.610416"
+       y="277.81769"
+       id="text1735"><tspan
+         sodipodi:role="line"
+         id="tspan1733"
+         x="15.610416"
+         y="282.60681"
+         style="stroke-width:0.26458332;-inkscape-font-specification:Minecraftia;font-family:Minecraftia;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;line-height:1.25;font-family:'Eagle Lake';-inkscape-font-specification:'Eagle Lake';letter-spacing:0px;word-spacing:0px;fill:#eeeeee;fill-opacity:0;stroke:none;stroke-width:0.26458332;"
+       x="18.653124"
+       y="276.42862"
+       id="text1739"><tspan
+         sodipodi:role="line"
+         id="tspan1737"
+         x="18.653124"
+         y="281.21774"
+         style="stroke-width:0.26458332;fill:#eeeeee;fill-opacity:0;" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;line-height:1.25;font-family:'Eagle Lake';-inkscape-font-specification:'Eagle Lake';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="23.614061"
+       y="279.40518"
+       id="text1743"><tspan
+         sodipodi:role="line"
+         id="tspan1741"
+         x="23.614061"
+         y="284.19431"
+         style="stroke-width:0.26458332" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;line-height:1.25;font-family:Minecraftia;-inkscape-font-specification:Minecraftia;letter-spacing:0px;word-spacing:0px;fill:#eeeeee;fill-opacity:0;stroke:none;stroke-width:0.26458332;"
+       x="28.839582"
+       y="279.66977"
+       id="text1747"><tspan
+         sodipodi:role="line"
+         id="tspan1745"
+         x="28.839582"
+         y="284.60867"
+         style="stroke-width:0.26458332;fill:#eeeeee;fill-opacity:0;" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;line-height:1.25;font-family:Minecraftia;-inkscape-font-specification:Minecraftia;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="25.4"
+       y="278.06625"
+       id="text1751"><tspan
+         sodipodi:role="line"
+         id="tspan1749"
+         x="25.4"
+         y="283.00516"
+         style="stroke-width:0.26458332" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;line-height:1.25;font-family:Minecraftia;-inkscape-font-specification:Minecraftia;letter-spacing:0px;word-spacing:0px;fill:#eeeeee;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="3.3072898"
+       y="281.87097"
+       id="text1755"><tspan
+         sodipodi:role="line"
+         id="tspan1753"
+         x="3.3072898"
+         y="281.87097"
+         style="font-size:4.93888903px;fill:#eeeeee;fill-opacity:1;stroke-width:0.26458332">The Magic ofCrafting</tspan></text>
+  </g>
+</svg>

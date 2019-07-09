@@ -9,7 +9,7 @@
   "updateUrl": "",
   "authorList": ["tryton-vanmeer"],
   "credits": "",
-  "logoFile": "",
+  "logoFile": "assets/craftmancy/logo.png",
   "screenshots": [],
   "dependencies": []
 }
