@@ -18,7 +18,7 @@ import sassycitrus.craftmancy.Craftmancy;
 import sassycitrus.craftmancy.block.BlockTileEntityBase;
 import sassycitrus.craftmancy.crafting.ArcaneTableCraftingManager;
 import sassycitrus.craftmancy.crafting.ArcaneTableCraftingManager.ArcaneTableRecipe;
-import sassycitrus.craftmancy.gui.CraftmancyGuiHandler;
+import sassycitrus.craftmancy.gui.GuiHandler;
 import sassycitrus.craftmancy.item.tool.Wand;
 
 public class BlockArcaneTable extends BlockTileEntityBase<TEArcaneTable>
@@ -83,7 +83,7 @@ public class BlockArcaneTable extends BlockTileEntityBase<TEArcaneTable>
             }
             else
             {
-                player.openGui(Craftmancy.modid, CraftmancyGuiHandler.ARCANE_TABLE, world, pos.getX(), pos.getY(), pos.getZ());
+                player.openGui(Craftmancy.modid, GuiHandler.ARCANE_TABLE, world, pos.getX(), pos.getY(), pos.getZ());
             }
         }
 
