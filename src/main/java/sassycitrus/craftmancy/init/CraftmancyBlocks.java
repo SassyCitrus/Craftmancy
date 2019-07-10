@@ -12,7 +12,9 @@ import net.minecraftforge.registries.IForgeRegistry;
 import sassycitrus.craftmancy.Craftmancy;
 import sassycitrus.craftmancy.block.BlockArcaneTable;
 import sassycitrus.craftmancy.block.BlockBase;
+import sassycitrus.craftmancy.block.alterbaum.LeavesAlterbaum;
 import sassycitrus.craftmancy.block.alterbaum.LogAlterbaum;
+import sassycitrus.craftmancy.block.alterbaum.SaplingAlterbaum;
 import sassycitrus.craftmancy.block.ore.OreEdelila;
 import sassycitrus.craftmancy.block.ore.OreFeuermin;
 
@@ -30,6 +32,8 @@ public class CraftmancyBlocks
     public static Block ALTERBAUM_LOG = registerBlock(new LogAlterbaum());
     public static Block ALTERBAUM_WOOD = registerBlock(new BlockBase(Material.WOOD, "alterbaum_wood").setHardness(2.0F).setHarvestLevelBase("axe", 2).setSoundType(SoundType.WOOD));
     public static Block ALTERBAUM_PLANKS = registerBlock(new BlockBase(Material.WOOD, "alterbaum_planks").setHardness(2.0F).setHarvestLevelBase("axe", 2).setSoundType(SoundType.WOOD));
+    public static Block ALTERBAUM_SAPLING = registerBlock(new SaplingAlterbaum());
+    public static Block ALTERBAUM_LEAVES = registerBlock(new LeavesAlterbaum());
     public static Block ARCANE_TABLE = registerBlock(new BlockArcaneTable());
 
     private static Block registerBlock(Block block)
