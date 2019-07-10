@@ -1,0 +1,25 @@
+{
+    "type": "craftmancy:arcane_table",
+    "pattern": [
+        "  G",
+        " S ",
+        "M  "
+    ],
+    "key":{
+        "G": {
+            "type": "forge:ore_dict",
+            "ore": "gemEmerald"
+        },
+        "S": {
+            "type": "forge:ore_dict",
+            "ore": "stickWood"
+        },
+        "M": {
+            "type": "forge:ore_dict",
+            "ore": "ingotGold"
+        }
+    },
+    "result": {
+        "item": "craftmancy:wand_gold_emerald"
+    }
+}

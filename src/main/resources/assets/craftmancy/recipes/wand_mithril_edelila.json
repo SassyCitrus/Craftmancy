@@ -1,0 +1,24 @@
+{
+    "type": "craftmancy:arcane_table",
+    "pattern": [
+        "  G",
+        " S ",
+        "M  "
+    ],
+    "key":{
+        "G": {
+            "item": "craftmancy:gem_edelila"
+        },
+        "S": {
+            "type": "forge:ore_dict",
+            "ore": "stickWood"
+        },
+        "M": {
+            "type": "forge:ore_dict",
+            "ore": "ingotMithril"
+        }
+    },
+    "result": {
+        "item": "craftmancy:wand_mithril_edelila"
+    }
+}

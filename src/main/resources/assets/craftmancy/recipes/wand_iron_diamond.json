@@ -1,0 +1,25 @@
+{
+    "type": "craftmancy:arcane_table",
+    "pattern": [
+        "  G",
+        " S ",
+        "M  "
+    ],
+    "key":{
+        "G": {
+            "type": "forge:ore_dict",
+            "ore": "gemDiamond"
+        },
+        "S": {
+            "type": "forge:ore_dict",
+            "ore": "stickWood"
+        },
+        "M": {
+            "type": "forge:ore_dict",
+            "ore": "ingotIron"
+        }
+    },
+    "result": {
+        "item": "craftmancy:wand_iron_diamond"
+    }
+}
