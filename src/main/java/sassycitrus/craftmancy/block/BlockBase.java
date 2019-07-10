@@ -1,16 +1,8 @@
 package sassycitrus.craftmancy.block;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
 import sassycitrus.craftmancy.Craftmancy;
-import sassycitrus.craftmancy.util.StringUtil;
 
 public class BlockBase extends Block
 {
@@ -43,18 +35,5 @@ public class BlockBase extends Block
     {
         this.setHarvestLevel(tool, level);
         return this;
-    }
-
-    @Override
-    public void addInformation(ItemStack stack, @Nullable World world, List<String> tooltip, ITooltipFlag flag)
-    {
-        if (StringUtil.isShiftKeyDown())
-        {
-            tooltip.add(StringUtil.getInfoText("info.craftmancy." + this.name));
-        }
-        else
-        {
-            tooltip.add(StringUtil.shiftForDetails());
-        }   
     }
 }

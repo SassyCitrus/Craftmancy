@@ -1,10 +1,5 @@
 package sassycitrus.craftmancy.item;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
-import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemFood;
@@ -14,7 +9,6 @@ import sassycitrus.craftmancy.Craftmancy;
 import sassycitrus.craftmancy.capability.ManaCapabilityHandler;
 import sassycitrus.craftmancy.capability.ManaCapabilityHandler.IManaHandler;
 import sassycitrus.craftmancy.network.Network;
-import sassycitrus.craftmancy.util.StringUtil;
 
 public class FoodAppleEdelila extends ItemFood
 {
@@ -45,18 +39,5 @@ public class FoodAppleEdelila extends ItemFood
     public EnumRarity getRarity(ItemStack stack)
     {
         return EnumRarity.RARE;
-    }
-
-    @Override
-    public void addInformation(ItemStack stack, @Nullable World world, List<String> tooltip, ITooltipFlag flag)
-    {
-        if (StringUtil.isShiftKeyDown())
-        {
-            tooltip.add(StringUtil.getInfoText("info.entropycraft." + NAME));
-        }
-        else
-        {
-            tooltip.add(StringUtil.shiftForDetails());
-        }
     }
 }
