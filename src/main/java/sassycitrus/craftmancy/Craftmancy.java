@@ -53,7 +53,6 @@ public class Craftmancy
     {
         CraftmancyRecipes.registerSmelting();
         CraftmancyRecipes.registerOreDict();
-        CraftmancyRecipes.registerArcaneTableCrafting();
         Network.register();
     }
 
