@@ -3,8 +3,7 @@
 	"defaults": {
 		"model": "leaves",
 		"textures": {
-            "all": "craftmancy:blocks/alterbaum/leaves",
-            "particle": "craftmancy:blocks/alterbaum/log"
+            "all": "craftmancy:blocks/alterbaum/leaves"
 		}
 	},
 	"variants": {
