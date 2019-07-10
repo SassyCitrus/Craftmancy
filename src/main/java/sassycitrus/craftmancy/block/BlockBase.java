@@ -1,6 +1,7 @@
 package sassycitrus.craftmancy.block;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import sassycitrus.craftmancy.Craftmancy;
 
@@ -34,6 +35,12 @@ public class BlockBase extends Block
     public BlockBase setHarvestLevelBase(String tool, int level)
     {
         this.setHarvestLevel(tool, level);
+        return this;
+    }
+
+    public BlockBase setSoundType(SoundType sound)
+    {
+        this.blockSoundType = sound;
         return this;
     }
 }
