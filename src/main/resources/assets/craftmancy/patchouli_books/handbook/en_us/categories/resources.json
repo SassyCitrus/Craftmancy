@@ -1,4 +1,5 @@
 {
+	"sortnum": 1,
 	"name": "Natural Resources",
 	"description": "Magical resources found in the world.",
 	"icon": "craftmancy:gem_edelila"
