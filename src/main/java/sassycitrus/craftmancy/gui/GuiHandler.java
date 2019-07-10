@@ -1,10 +1,8 @@
 package sassycitrus.craftmancy.gui;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
-import sassycitrus.craftmancy.block.arcanetable.TEArcaneTable;
 import sassycitrus.craftmancy.gui.arcanetable.ContainerArcaneTable;
 import sassycitrus.craftmancy.gui.arcanetable.GuiArcaneTable;
 
@@ -18,7 +16,7 @@ public class GuiHandler implements IGuiHandler
         switch (ID)
         {
             case ARCANE_TABLE:
-                return new ContainerArcaneTable(player.inventory, (TEArcaneTable) world.getTileEntity(new BlockPos(x, y, z)));
+                return new ContainerArcaneTable(player.inventory, world);
             default:
                 return null;
         }

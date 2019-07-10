@@ -7,11 +7,10 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 import sassycitrus.craftmancy.Craftmancy;
+import sassycitrus.craftmancy.block.BlockArcaneTable;
 import sassycitrus.craftmancy.block.BlockBase;
-import sassycitrus.craftmancy.block.arcanetable.BlockArcaneTable;
 import sassycitrus.craftmancy.block.ore.OreEdelila;
 import sassycitrus.craftmancy.block.ore.OreFeuermin;
 
@@ -39,8 +38,6 @@ public class CraftmancyBlocks
         registry.registerAll(
             BLOCKS.values().toArray(new Block[BLOCKS.size()])
         );
-
-        GameRegistry.registerTileEntity(((BlockArcaneTable) ARCANE_TABLE).getTileEntityClass(), ARCANE_TABLE.getRegistryName());
     }
 
     public static void registerItemBlocks(IForgeRegistry<Item> registry)

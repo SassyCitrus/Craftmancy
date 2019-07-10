@@ -42,8 +42,7 @@ public class Craftmancy
     public void preInit(FMLPreInitializationEvent event)
     {
         System.out.println(name + " is loading!");
-
-        proxy.preInit(event);
+        
         GameRegistry.registerWorldGenerator(new CraftmancyWorldGen(), 3);
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
         ManaCapabilityHandler.register();
