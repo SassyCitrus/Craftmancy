@@ -2,5 +2,5 @@
 	"sortnum": 0,
 	"name": "Getting Started",
 	"description": "How to begin your journey.",
-	"icon": "craftmancy:book"
+	"icon": "craftmancy:textures/items/handbook.png"
 }
