@@ -22,7 +22,7 @@ public class LogAlterbaum extends BlockLog
         setUnlocalizedName("alterbaum_log");
         setRegistryName("alterbaum_log");
         setCreativeTab(Craftmancy.creativeTab);
-        this.setDefaultState(blockState.getBaseState().withProperty(LOG_AXIS, EnumAxis.X));
+        setDefaultState(blockState.getBaseState().withProperty(LOG_AXIS, EnumAxis.X));
     }
 
         @Override
