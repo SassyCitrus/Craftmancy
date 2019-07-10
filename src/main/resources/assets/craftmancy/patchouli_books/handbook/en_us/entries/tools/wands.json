@@ -1,0 +1,12 @@
+{
+    "sortnum": 0,
+    "name": "Wands",
+    "icon": "craftmancy:wand_tier_3",
+    "category": "tools",
+    "pages": [
+        {
+            "type": "text",
+            "text": "List of wands"
+        }
+    ]
+}
