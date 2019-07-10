@@ -14,6 +14,10 @@ tile.mithril_block.name=Mithril Block
 tile.feuermin_block.name=Feuermin Block
 tile.feuersteel_block.name=Feuersteel Block
 
+tile.alterbaum_log.name=Alterbaum Log
+tile.alterbaum_wood.name=Alterbaum Wood
+tile.alterbaum_planks.name=Alterbaum Planks
+
 tile.arcane_table.name=Arcane Workbench
 
 item.gem_edelila.name=Edelila
