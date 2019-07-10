@@ -18,10 +18,9 @@ public class CraftmancyItems
     public static Item FEUERMIN = registerItem("feuermin");
     public static Item INGOT_FEUERSTEEL = registerItem("ingot_feuersteel");
     public static Item EDELILA_APPLE = registerItem(new FoodAppleEdelila());
-    public static Item WAND_TIER_0 = registerItem(new Wand(0));
-    public static Item WAND_TIER_1 = registerItem(new Wand(1));
-    public static Item WAND_TIER_2 = registerItem(new Wand(2));
-    public static Item WAND_TIER_3 = registerItem(new Wand(3));
+    public static Item WAND_IRON_DIAMOND = registerItem(new Wand("iron_diamond"));
+    public static Item WAND_GOLD_EMERALD = registerItem(new Wand("gold_emerald"));
+    public static Item WAND_MITHRIL_EDELILA = registerItem(new Wand("mithril_edelila"));
 
     private static Item registerItem(Item item)
     {
