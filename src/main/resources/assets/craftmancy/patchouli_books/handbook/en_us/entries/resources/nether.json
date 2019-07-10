@@ -1,0 +1,13 @@
+{
+    "sortnum": 1,
+    "name": "Nether",
+    "icon": "minecraft:netherrack",
+    "category": "resources",
+    "pages": [
+        {
+            "type": "spotlight",
+            "item": "craftmancy:ore_feuermin",
+            "text": "Feurmin is a mineral."
+        }
+    ]
+}

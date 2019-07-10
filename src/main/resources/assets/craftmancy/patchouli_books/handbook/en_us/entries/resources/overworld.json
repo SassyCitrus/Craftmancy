@@ -1,0 +1,18 @@
+{
+    "sortnum": 0,
+    "name": "Overworld",
+    "icon": "minecraft:grass",
+    "category": "resources",
+    "pages": [
+        {
+            "type": "spotlight",
+            "item": "craftmancy:ore_edelila",
+            "text": "Edelila is a gemstone infused with magical energy."
+        },
+        {
+            "type": "spotlight",
+            "item": "craftmancy:ore_mithril",
+            "text": "Mithril, while not as magical as Edelila, is still a fantastic metal."
+        }
+    ]
+}
