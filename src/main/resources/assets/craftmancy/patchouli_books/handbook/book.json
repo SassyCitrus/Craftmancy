@@ -4,6 +4,7 @@
     "landing_text": "LANDING TEXT",
     "book_texture": "craftmancy:textures/gui/patchouli/book.png",
     "filler_texture": "craftmancy:textures/gui/patchouli/page_filler.png",
+    "index_icon": "minecraft:sign",
     "model": "craftmancy:handbook",
     "creative_tab": "craftmancy",
     "show_progress": false
