@@ -1,6 +1,9 @@
 itemGroup.craftmancy=Craftmancy
 
 info.craftmancy.holdShiftForDetails=Hold §e§oShift§r§7 for Details§r
+info.craftmancy.wand_iron_diamond=Iron binding with Diamond gemstone
+info.craftmancy.wand_gold_emerald=Gold Binding with Emerald gemstone
+info.craftmancy.wand_mithril_edelila=Mithril binding with Edelila gemstone
 
 tile.ore_edelila.name=Edelila Ore
 tile.ore_mithril.name=Mithril Ore
@@ -19,7 +22,6 @@ item.ingot_mithril.name=Mithril Ingot
 item.ingot_feuersteel.name=Feuersteel Ingot
 item.apple_edelila.name=Edelila Apple
 
-item.wand_tier_0.name=Wand (Tier 0)
-item.wand_tier_1.name=Wand (Tier 1)
-item.wand_tier_2.name=Wand (Tier 2)
-item.wand_tier_3.name=Wand (Tier 3)
+item.wand_iron_diamond.name=Wand of Craftmancy
+item.wand_gold_emerald.name=Wand of Craftmancy
+item.wand_mithril_edelila.name=Wand of Craftmancy
