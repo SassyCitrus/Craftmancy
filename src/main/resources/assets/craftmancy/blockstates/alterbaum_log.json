@@ -1,0 +1,19 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "cube_column",
+		"textures": {
+            "end": "craftmancy:blocks/alterbaum/log_top",
+            "side": "craftmancy:blocks/alterbaum/log"
+		}
+	},
+	"variants": {
+		"normal": [{}],
+        "inventory": [{}],
+        "axis": {
+			"x": {"x": 90, "y": 90},
+			"z": {"x": 90},
+			"y": {}
+		}
+	}
+}
