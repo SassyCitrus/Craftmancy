@@ -17,6 +17,8 @@ tile.feuersteel_block.name=Feuersteel Block
 tile.alterbaum_log.name=Alterbaum Log
 tile.alterbaum_wood.name=Alterbaum Wood
 tile.alterbaum_planks.name=Alterbaum Planks
+tile.alterbaum_sapling.name=Alterbaum Sapling
+tile.alterbaum_leaves.name=Alterbaum Leaves
 
 tile.arcane_table.name=Arcane Workbench
 
