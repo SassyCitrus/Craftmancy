@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 import sassycitrus.craftmancy.Craftmancy;
 import sassycitrus.craftmancy.gui.GuiHandler;
 
-public class BlockArcaneTable extends BlockBase
+public class BlockArcaneTable extends BlockWithFacing
 {
     public BlockArcaneTable()
     {
