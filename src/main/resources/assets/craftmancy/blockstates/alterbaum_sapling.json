@@ -1,17 +1,6 @@
 {
-	"forge_marker": 1,
-	"defaults": {
-		"model": "cross",
-		"textures": {
-            "cross": "craftmancy:blocks/alterbaum/sapling"
-		}
-	},
-	"variants": {
-		"normal": [{}],
-        "inventory": [{}],
-        "stage": {
-			"0": {},
-			"1": {}
-		}
-	}
+    "variants": {
+        "stage=0": { "model": "craftmancy:alterbaum_sapling" },
+        "stage=1": { "model": "craftmancy:alterbaum_sapling" }
+    }
 }
