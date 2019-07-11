@@ -21,6 +21,9 @@ public class CraftmancyRecipes
         OreDictionary.registerOre("treeSapling", CraftmancyBlocks.ALTERBAUM_SAPLING);
         OreDictionary.registerOre("treeLeaves", CraftmancyBlocks.ALTERBAUM_LEAVES);
 
+        OreDictionary.registerOre("logAlterbaum", CraftmancyBlocks.ALTERBAUM_LOG);
+        OreDictionary.registerOre("logAlterbaum", CraftmancyBlocks.ALTERBAUM_WOOD);
+
         OreDictionary.registerOre("oreMithril", CraftmancyBlocks.ORE_MITHRIL);
         OreDictionary.registerOre("blockMithril", CraftmancyBlocks.MITHRIL_BLOCK);
         OreDictionary.registerOre("ingotMithril", CraftmancyItems.INGOT_MITHRIL);
