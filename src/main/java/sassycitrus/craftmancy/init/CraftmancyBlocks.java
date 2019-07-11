@@ -30,8 +30,8 @@ public class CraftmancyBlocks
     public static Block ORE_MITHRIL = registerBlock(new BlockBase(Material.ROCK, "ore_mithril").setHardness(3.0F).setResistance(5.0F).setHarvestLevelBase("pickaxe", 2).setSoundType(SoundType.STONE));
     public static Block ORE_FEUERMIN = registerBlock(new OreFeuermin());
     public static Block ALTERBAUM_LOG = registerBlock(new LogAlterbaum());
-    public static Block ALTERBAUM_WOOD = registerBlock(new BlockBase(Material.WOOD, "alterbaum_wood").setHardness(2.0F).setHarvestLevelBase("axe", 2).setSoundType(SoundType.WOOD));
-    public static Block ALTERBAUM_PLANKS = registerBlock(new BlockBase(Material.WOOD, "alterbaum_planks").setHardness(2.0F).setHarvestLevelBase("axe", 2).setSoundType(SoundType.WOOD));
+    public static Block ALTERBAUM_WOOD = registerBlock(new BlockBase(Material.ROCK, "alterbaum_wood").setHardness(2.0F).setHarvestLevelBase("axe", 2).setSoundType(SoundType.WOOD));
+    public static Block ALTERBAUM_PLANKS = registerBlock(new BlockBase(Material.WOOD, "alterbaum_planks").setHardness(2.0F).setSoundType(SoundType.WOOD));
     public static Block ALTERBAUM_SAPLING = registerBlock(new SaplingAlterbaum());
     public static Block ALTERBAUM_LEAVES = registerBlock(new LeavesAlterbaum());
     public static Block ARCANE_TABLE = registerBlock(new BlockArcaneTable());

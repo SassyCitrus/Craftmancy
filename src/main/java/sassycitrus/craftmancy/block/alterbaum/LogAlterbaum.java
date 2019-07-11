@@ -1,6 +1,7 @@
 package sassycitrus.craftmancy.block.alterbaum;
 
 import net.minecraft.block.BlockLog;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -25,12 +26,18 @@ public class LogAlterbaum extends BlockLog
         setDefaultState(blockState.getBaseState().withProperty(LOG_AXIS, EnumAxis.X));
     }
 
-        @Override
-        public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY,
-                float hitZ, int meta, EntityLivingBase placer, EnumHand hand)
-        {
-            return this.getStateFromMeta(meta).withProperty(LOG_AXIS, EnumAxis.fromFacingAxis(facing.getAxis()));
-        }
+    @Override
+    public Material getMaterial(IBlockState state)
+    {
+        return Material.ROCK;
+    }
+
+    @Override
+    public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY,
+            float hitZ, int meta, EntityLivingBase placer, EnumHand hand)
+    {
+        return this.getStateFromMeta(meta).withProperty(LOG_AXIS, EnumAxis.fromFacingAxis(facing.getAxis()));
+    }
 
     @Override
     public IBlockState getStateFromMeta(int meta)
