@@ -11,8 +11,9 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import sassycitrus.craftmancy.Craftmancy;
+import sassycitrus.craftmancy.api.IBurnableFuel;
 
-public class LogAlterbaum extends BlockLog
+public class LogAlterbaum extends BlockLog implements IBurnableFuel
 {
     public static final PropertyEnum<EnumAxis> LOG_AXIS = PropertyEnum.<EnumAxis>create("axis", EnumAxis.class);    
 
@@ -24,6 +25,12 @@ public class LogAlterbaum extends BlockLog
         setRegistryName("alterbaum_log");
         setCreativeTab(Craftmancy.creativeTab);
         setDefaultState(blockState.getBaseState().withProperty(LOG_AXIS, EnumAxis.X));
+    }
+
+    @Override
+    public int getBurnTime()
+    {
+        return 300;
     }
 
     @Override
