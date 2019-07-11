@@ -8,8 +8,10 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.registries.IForgeRegistry;
 import sassycitrus.craftmancy.Craftmancy;
+import sassycitrus.craftmancy.api.IBurnableFuel;
 import sassycitrus.craftmancy.block.BlockArcaneTable;
 import sassycitrus.craftmancy.block.BlockBase;
 import sassycitrus.craftmancy.block.alterbaum.LeavesAlterbaum;
@@ -73,6 +75,24 @@ public class CraftmancyBlocks
 
     private static Item createItemBlock(Block block)
     {
-        return new ItemBlock(block).setRegistryName(block.getRegistryName());
+        Item item;
+
+        if (block instanceof IBurnableFuel)
+        {
+            item = new ItemBlock(block)
+            {
+                @Override
+                public int getItemBurnTime(ItemStack stack)
+                {
+                    return ((IBurnableFuel) block).getBurnTime();
+                }
+            };
+        }
+        else
+        {
+            item = new ItemBlock(block);
+        }
+        
+        return item.setRegistryName(block.getRegistryName());
     }
 }
