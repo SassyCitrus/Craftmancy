@@ -79,8 +79,11 @@ public class ContainerArcaneTable extends Container
 
             if (irecipe != null && (irecipe.isDynamic() || !world.getGameRules().getBoolean("doLimitedCrafting") || playerMP.getRecipeBook().isUnlocked(irecipe)))
             {
-                craftResult.setRecipeUsed(irecipe);
-                stack = irecipe.getCraftingResult(inventoryCrafting);
+                if (irecipe.getGroup().equals("craftmancy:arcane_table"))
+                {
+                    craftResult.setRecipeUsed(irecipe);
+                    stack = irecipe.getCraftingResult(inventoryCrafting);
+                }
             }
 
             craftResult.setInventorySlotContents(0, stack);
