@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "logAlterbaum"
+        }
+    ],
+    "result": {
+        "item": "craftmancy:alterbaum_planks",
+        "count": 4
+    }
+}
