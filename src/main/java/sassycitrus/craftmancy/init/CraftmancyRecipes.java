@@ -15,6 +15,12 @@ public class CraftmancyRecipes
     @SubscribeEvent
     public static void registerRecipes(RegistryEvent.Register<IRecipe> event)
     {
+        OreDictionary.registerOre("logWood", CraftmancyBlocks.ALTERBAUM_LOG);
+        OreDictionary.registerOre("logWood", CraftmancyBlocks.ALTERBAUM_WOOD);
+        OreDictionary.registerOre("plankWood", CraftmancyBlocks.ALTERBAUM_PLANKS);
+        OreDictionary.registerOre("treeSapling", CraftmancyBlocks.ALTERBAUM_SAPLING);
+        OreDictionary.registerOre("treeLeaves", CraftmancyBlocks.ALTERBAUM_LEAVES);
+
         OreDictionary.registerOre("oreMithril", CraftmancyBlocks.ORE_MITHRIL);
         OreDictionary.registerOre("blockMithril", CraftmancyBlocks.MITHRIL_BLOCK);
         OreDictionary.registerOre("ingotMithril", CraftmancyItems.INGOT_MITHRIL);
