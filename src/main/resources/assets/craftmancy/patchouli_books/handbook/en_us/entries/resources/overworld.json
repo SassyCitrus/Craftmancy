@@ -13,6 +13,12 @@
             "type": "spotlight",
             "item": "craftmancy:ore_mithril",
             "text": "Mithril, while not as magical as Edelila, is still a fantastic metal."
+        },
+        {
+            "type": "spotlight",
+            "title": "Alterbaum Tree",
+            "item": "craftmancy:alterbaum_log",
+            "text": "Alterbaum are ancient trees, whose wood has magical properties."
         }
     ]
 }
