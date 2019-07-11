@@ -1,7 +1,7 @@
 {
     "sortnum": 0,
     "name": "First Wand",
-    "icon": "craftmancy:wand_tier_0",
+    "icon": "craftmancy:wand_iron_diamond",
     "category": "basics",
     "pages": [
         {
