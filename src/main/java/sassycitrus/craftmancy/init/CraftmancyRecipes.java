@@ -13,8 +13,8 @@ public class CraftmancyRecipes
 
     public static void registerOreDict()
     {
-        OreDictionary.registerOre("oreMithril", new ItemStack(CraftmancyBlocks.ORE_MITHRIL));
-        OreDictionary.registerOre("blockMithril", new ItemStack(CraftmancyBlocks.MITHRIL_BLOCK));
-        OreDictionary.registerOre("ingotMithril", new ItemStack(CraftmancyItems.INGOT_MITHRIL));
+        OreDictionary.registerOre("oreMithril", CraftmancyBlocks.ORE_MITHRIL);
+        OreDictionary.registerOre("blockMithril", CraftmancyBlocks.MITHRIL_BLOCK);
+        OreDictionary.registerOre("ingotMithril", CraftmancyItems.INGOT_MITHRIL);
     }
 }
