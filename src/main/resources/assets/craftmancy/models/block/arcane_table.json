@@ -1,5 +1,6 @@
 {
 	"credit": "Made with Blockbench",
+	"parent": "block/block",
 	"textures": {
 		"book": "craftmancy:blocks/arcane_table/book",
 		"particle": "craftmancy:blocks/arcane_table/book",
@@ -786,27 +787,12 @@
 		}
 	],
 	"display": {
-		"thirdperson_righthand": {
-			"rotation": [0, 180, 0],
-			"translation": [-6, 7, 0]
-		},
-		"thirdperson_lefthand": {
-			"rotation": [90, 180, 0],
-			"translation": [-6, 8, 0]
-		},
-		"firstperson_righthand": {
-			"rotation": [0, 135, 0],
-			"scale": [0.5, 0.5, 0.5]
-		},
-		"firstperson_lefthand": {
-			"rotation": [0, 135, 0],
-			"scale": [0.5, 0.5, 0.5]
-		},
-		"gui": {
-			"rotation": [22.5, 135, 0],
-			"scale": [0.5, 0.5, 0.5]
-		}
-	},
+        "firstperson_righthand": {
+            "rotation": [ 0, 135, 0 ],
+            "translation": [ 0, 0, 0 ],
+            "scale": [ 0.40, 0.40, 0.40 ]
+        }
+    },
 	"groups": [
 		{
 			"name": "Book",
