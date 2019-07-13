@@ -19,6 +19,7 @@ import sassycitrus.craftmancy.block.alterbaum.LogAlterbaum;
 import sassycitrus.craftmancy.block.alterbaum.PlanksAlterbaum;
 import sassycitrus.craftmancy.block.alterbaum.SaplingAlterbaum;
 import sassycitrus.craftmancy.block.alterbaum.WoodAlterbaum;
+import sassycitrus.craftmancy.block.manafurnace.BlockManaFurnace;
 import sassycitrus.craftmancy.block.ore.OreEdelila;
 import sassycitrus.craftmancy.block.ore.OreFeuermin;
 
@@ -39,6 +40,7 @@ public class CraftmancyBlocks
     public static Block ALTERBAUM_SAPLING = registerBlock(new SaplingAlterbaum());
     public static Block ALTERBAUM_LEAVES = registerBlock(new LeavesAlterbaum());
     public static Block ARCANE_TABLE = registerBlock(new BlockArcaneTable());
+    public static Block MANA_FURNACE = registerBlock(new BlockManaFurnace());
 
     private static Block registerBlock(Block block)
     {
