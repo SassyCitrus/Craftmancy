@@ -9,6 +9,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 import sassycitrus.craftmancy.Craftmancy;
 import sassycitrus.craftmancy.api.IBurnableFuel;
@@ -20,6 +22,7 @@ import sassycitrus.craftmancy.block.alterbaum.PlanksAlterbaum;
 import sassycitrus.craftmancy.block.alterbaum.SaplingAlterbaum;
 import sassycitrus.craftmancy.block.alterbaum.WoodAlterbaum;
 import sassycitrus.craftmancy.block.manafurnace.BlockManaFurnace;
+import sassycitrus.craftmancy.block.manafurnace.TileManaFurnace;
 import sassycitrus.craftmancy.block.ore.OreEdelila;
 import sassycitrus.craftmancy.block.ore.OreFeuermin;
 
@@ -53,6 +56,8 @@ public class CraftmancyBlocks
         registry.registerAll(
             BLOCKS.values().toArray(new Block[BLOCKS.size()])
         );
+
+        registerTileEntities();
     }
 
     public static void registerItemBlocks(IForgeRegistry<Item> registry)
@@ -98,5 +103,10 @@ public class CraftmancyBlocks
         }
         
         return item.setRegistryName(block.getRegistryName());
+    }
+
+    public static void registerTileEntities()
+    {
+        GameRegistry.registerTileEntity(TileManaFurnace.class, new ResourceLocation("craftmancy:mana_furnace"));
     }
 }
