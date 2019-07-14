@@ -1,6 +1,7 @@
 package sassycitrus.craftmancy.block;
 
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 
@@ -21,6 +22,13 @@ public abstract class TileEntityBase extends TileEntity
     @Override
     public NBTTagCompound getUpdateTag()
     {
-        return this.writeToNBT(new NBTTagCompound());
+        return writeToNBT(new NBTTagCompound());
+    }
+
+    @Override
+    public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity packet)
+    {
+        readFromNBT(packet.getNbtCompound());
+        world.notifyBlockUpdate(pos, world.getBlockState(pos), world.getBlockState(pos), 2);
     }
 }
