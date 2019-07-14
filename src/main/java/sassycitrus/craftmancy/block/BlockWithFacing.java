@@ -45,7 +45,8 @@ public class BlockWithFacing extends BlockBase
     }
 
     @Override
-    protected BlockStateContainer createBlockState() {
+    protected BlockStateContainer createBlockState()
+    {
         return new BlockStateContainer(this, FACING);
     }
 }
