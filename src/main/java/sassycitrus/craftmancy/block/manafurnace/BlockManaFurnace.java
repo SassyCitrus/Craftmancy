@@ -15,7 +15,9 @@ import net.minecraft.world.ChunkCache;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
+import sassycitrus.craftmancy.Craftmancy;
 import sassycitrus.craftmancy.block.BlockWithFacing;
+import sassycitrus.craftmancy.gui.GuiHandler;
 
 public class BlockManaFurnace extends BlockWithFacing
 {
@@ -75,12 +77,12 @@ public class BlockManaFurnace extends BlockWithFacing
     }
 
     @Override
-    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer playerIn,
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player,
             EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
         if (!world.isRemote)
         {
-            getTileEntity(world, pos).rightClick();
+            player.openGui(Craftmancy.modid, GuiHandler.MANA_FURNACE, world, pos.getX(), pos.getY(), pos.getZ());
         }
 
         return true;
