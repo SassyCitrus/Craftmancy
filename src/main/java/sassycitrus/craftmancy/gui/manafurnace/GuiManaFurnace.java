@@ -14,14 +14,14 @@ public class GuiManaFurnace extends GuiContainer
 {
     private static final ResourceLocation BG_TEXTURE = new ResourceLocation(Craftmancy.modid, "textures/gui/container/mana_furnace.png");
 
-    private TileManaFurnace te;
+    private TileManaFurnace tileManaFurnace;
     private InventoryPlayer playerInventory;
 
-    public GuiManaFurnace(Container container, InventoryPlayer playerInventory, TileManaFurnace te)
+    public GuiManaFurnace(Container container, InventoryPlayer playerInventory, TileManaFurnace tileManaFurnace)
     {
         super(container);
         this.playerInventory = playerInventory;
-        this.te = te;
+        this.tileManaFurnace = tileManaFurnace;
     }
 
     @Override
@@ -29,9 +29,29 @@ public class GuiManaFurnace extends GuiContainer
     {
         GlStateManager.color(1, 1, 1, 1);
         mc.getTextureManager().bindTexture(BG_TEXTURE);
+
         int x = (width - xSize) / 2;
         int y = (height - ySize) / 2;
+
         drawTexturedModalRect(x, y, 0, 0, xSize, ySize);
+
+        if (tileManaFurnace.isBurning())
+        {
+            int burnLeft = getBurnLeftScaled(13);
+            this.drawTexturedModalRect(x + 83, y + 58 - burnLeft, 176, 12 - burnLeft, 14, burnLeft + 1);
+        }
+    }
+
+    private int getBurnLeftScaled(int pixels)
+    {
+        int i = this.tileManaFurnace.currentItemBurnTime;
+
+        if (i == 0)
+        {
+            i = 200;
+        }
+
+        return this.tileManaFurnace.furnaceBurnTime * pixels / i;
     }
 
     @Override

@@ -15,8 +15,8 @@ public class TileManaFurnace extends TileEntityBase implements ITickable
 {
     private ItemStackHandler inventory = new ItemStackHandler(1);
 
-    private int currentItemBurnTime = 0;
-    private int furnaceBurnTime = 0;
+    public int currentItemBurnTime = 0;
+    public int furnaceBurnTime = 0;
 
     @Override
     public NBTTagCompound writeToNBT(NBTTagCompound nbt)
