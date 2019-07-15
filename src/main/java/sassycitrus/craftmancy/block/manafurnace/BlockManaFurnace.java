@@ -73,7 +73,7 @@ public class BlockManaFurnace extends BlockWithFacing
     {
         TileManaFurnace te = getTileEntity(world, pos);
 
-        return state.withProperty(ACTIVE, te.isActive());
+        return state.withProperty(ACTIVE, te.isBurning());
     }
 
     @Override
