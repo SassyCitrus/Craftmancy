@@ -3,9 +3,12 @@ package sassycitrus.craftmancy.block.manafurnace;
 import javax.annotation.Nullable;
 
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
+import net.minecraft.world.EnumSkyBlock;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
@@ -32,9 +35,16 @@ public class TileManaFurnace extends TileEntityBase implements ITickable
     public void readFromNBT(NBTTagCompound nbt)
     {
         super.readFromNBT(nbt);
-        inventory.deserializeNBT(nbt.getCompoundTag("inventory"));
+        this.inventory.deserializeNBT(nbt.getCompoundTag("inventory"));
         this.currentItemBurnTime = nbt.getInteger("currentItemBurnTime");
         this.furnaceBurnTime = nbt.getInteger("furnaceBurnTime");
+    }
+
+    @Override
+    public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity packet)
+    {
+        super.onDataPacket(net, packet);
+        this.world.checkLightFor(EnumSkyBlock.BLOCK, pos);
     }
 
     @Override

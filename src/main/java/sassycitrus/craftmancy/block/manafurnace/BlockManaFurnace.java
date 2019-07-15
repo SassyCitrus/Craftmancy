@@ -1,20 +1,26 @@
 package sassycitrus.craftmancy.block.manafurnace;
 
+import java.util.Random;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ChunkCache;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import sassycitrus.craftmancy.Craftmancy;
 import sassycitrus.craftmancy.block.BlockWithFacing;
 import sassycitrus.craftmancy.gui.GuiHandler;
@@ -86,5 +92,33 @@ public class BlockManaFurnace extends BlockWithFacing
         }
 
         return true;
+    }
+
+    @SideOnly(Side.CLIENT)
+    @Override
+    public void randomDisplayTick(IBlockState stateIn, World world, BlockPos pos, Random rand)
+    {
+        if (getTileEntity(world, pos).isBurning())
+        {
+            if (rand.nextDouble() < 0.1D)
+            {
+                world.playSound(pos.getX() + 05D, pos.getY(), pos.getZ() + 0.5D, SoundEvents.BLOCK_FURNACE_FIRE_CRACKLE, SoundCategory.BLOCKS, 1.0F, 1.0F, false);
+            }
+        }
+    }
+
+    @Override
+    public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos)
+    {
+        TileManaFurnace tile = getTileEntity(world, pos);
+    
+        if (tile != null && tile.hasWorld())
+        {
+            return tile.isBurning() ? 14 : 0;
+        }
+        else
+        {
+            return super.getLightValue(state, world, pos);
+        }
     }
 }
