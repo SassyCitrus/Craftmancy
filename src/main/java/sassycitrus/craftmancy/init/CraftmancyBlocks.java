@@ -27,7 +27,7 @@ import sassycitrus.craftmancy.block.ore.OreEdelila;
 import sassycitrus.craftmancy.block.ore.OreFeuermin;
 import sassycitrus.craftmancy.block.ritual.BlockRitual;
 import sassycitrus.craftmancy.block.ritual.BlockRitualAltar;
-import sassycitrus.craftmancy.block.ritual.TileRitual;
+import sassycitrus.craftmancy.block.ritual.TileRitualBlock;
 
 public class CraftmancyBlocks
 {
@@ -113,6 +113,6 @@ public class CraftmancyBlocks
     public static void registerTileEntities()
     {
         GameRegistry.registerTileEntity(TileManaFurnace.class, new ResourceLocation("craftmancy:mana_furnace"));
-        GameRegistry.registerTileEntity(TileRitual.class, new ResourceLocation("craftmancy:ritual_block"));
+        GameRegistry.registerTileEntity(TileRitualBlock.class, new ResourceLocation("craftmancy:ritual_block"));
     }
 }
