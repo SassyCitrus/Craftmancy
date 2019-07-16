@@ -59,10 +59,15 @@ public class BlockRitual extends BlockBase
         {
             TileRitualBlock te = getTileEntity(world, pos);
             ItemStack heldItem = player.getHeldItem(hand);
-
+            
             if (heldItem.isEmpty())
             {
                 player.setHeldItem(hand, te.inventory.extractItem(0, 1, false));
+            }
+            else if (heldItem.getCount() < heldItem.getMaxStackSize() && heldItem.isItemEqual(te.inventory.getStackInSlot(0)))
+            {
+                te.inventory.extractItem(0, 1, false);
+                heldItem.grow(1);
             }
             else
             {
