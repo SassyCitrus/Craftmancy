@@ -1,14 +1,17 @@
 package sassycitrus.craftmancy.block.manafurnace;
 
 import java.util.Random;
+import java.util.UUID;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
@@ -24,6 +27,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import sassycitrus.craftmancy.Craftmancy;
 import sassycitrus.craftmancy.block.BlockWithFacing;
 import sassycitrus.craftmancy.gui.GuiHandler;
+import sassycitrus.craftmancy.util.PlayerUtil;
 
 public class BlockManaFurnace extends BlockWithFacing
 {
@@ -80,6 +84,20 @@ public class BlockManaFurnace extends BlockWithFacing
         TileManaFurnace te = getTileEntity(world, pos);
 
         return state.withProperty(ACTIVE, te.isBurning());
+    }
+
+    @Override
+    public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack)
+    {
+        super.onBlockPlacedBy(world, pos, state, placer, stack);
+
+        if (!world.isRemote && placer instanceof EntityPlayer)
+        {
+            TileManaFurnace manaFurnace = getTileEntity(world, pos);
+            UUID player = PlayerUtil.getUUIDFromPlayer((EntityPlayer) placer);
+
+            manaFurnace.setPlayerUUID(player);
+        }
     }
 
     @Override

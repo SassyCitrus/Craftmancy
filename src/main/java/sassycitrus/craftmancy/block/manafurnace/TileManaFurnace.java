@@ -1,7 +1,10 @@
 package sassycitrus.craftmancy.block.manafurnace;
 
+import java.util.UUID;
+
 import javax.annotation.Nullable;
 
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
@@ -13,21 +16,30 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import sassycitrus.craftmancy.block.TileEntityBase;
+import sassycitrus.craftmancy.capability.ManaCapabilityHandler;
+import sassycitrus.craftmancy.network.Network;
+import sassycitrus.craftmancy.util.PlayerUtil;
 
 public class TileManaFurnace extends TileEntityBase implements ITickable
 {
-    private ItemStackHandler inventory = new ItemStackHandler(1);
+    public static final int TICKS_TILL_MANA = 50;
+    public static final int MANA_RATE = 5;
 
+    private ItemStackHandler inventory = new ItemStackHandler(1);
+    private UUID playerUUID = PlayerUtil.DEFAULT_UUID;
     public int currentItemBurnTime = 0;
     public int furnaceBurnTime = 0;
+    public int ticksTillMana = 0;
 
     @Override
     public NBTTagCompound writeToNBT(NBTTagCompound nbt)
     {
         super.writeToNBT(nbt);
         nbt.setTag("inventory", inventory.serializeNBT());
+        nbt.setUniqueId("playerUUID", playerUUID);
         nbt.setInteger("currentItemBurnTime", this.currentItemBurnTime);
         nbt.setInteger("furnaceBurnTime", this.furnaceBurnTime);
+        nbt.setInteger("ticksTillMana", this.ticksTillMana);
         return nbt;
     }
 
@@ -36,8 +48,10 @@ public class TileManaFurnace extends TileEntityBase implements ITickable
     {
         super.readFromNBT(nbt);
         this.inventory.deserializeNBT(nbt.getCompoundTag("inventory"));
+        this.playerUUID = nbt.getUniqueId("playerUUID");
         this.currentItemBurnTime = nbt.getInteger("currentItemBurnTime");
         this.furnaceBurnTime = nbt.getInteger("furnaceBurnTime");
+        this.ticksTillMana = nbt.getInteger("ticksTillMana");
     }
 
     @Override
@@ -71,6 +85,27 @@ public class TileManaFurnace extends TileEntityBase implements ITickable
             {
                 notifyBlockUpdate();
             }
+
+            if (!this.world.isRemote)
+            {
+                EntityPlayer player = PlayerUtil.getPlayerFromUUID(this.playerUUID);
+
+                if (player == null)
+                {
+                    // Player doesn't exist or offline
+                    return;
+                }
+
+                ticksTillMana++;
+
+                if (this.ticksTillMana == TICKS_TILL_MANA)
+                {
+                    this.ticksTillMana = 0;
+
+                    ManaCapabilityHandler.getHandler(player).addMana(MANA_RATE);
+                    Network.syncPlayerMana((EntityPlayer) player);
+                }
+            }
         }
 
         if (!this.world.isRemote)
@@ -81,6 +116,7 @@ public class TileManaFurnace extends TileEntityBase implements ITickable
             {
                 this.furnaceBurnTime = burnTime;
                 this.currentItemBurnTime = burnTime;
+                this.ticksTillMana = 0;
                 consumeFuel();
                 sendUpdates();
             }
@@ -100,5 +136,10 @@ public class TileManaFurnace extends TileEntityBase implements ITickable
     private void consumeFuel()
     {
         this.inventory.extractItem(0, 1, false);
+    }
+
+    public void setPlayerUUID(UUID player)
+    {
+        this.playerUUID = player;
     }
 }
