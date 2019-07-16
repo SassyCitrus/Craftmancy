@@ -44,6 +44,7 @@ public class Craftmancy
         
         GameRegistry.registerWorldGenerator(new CraftmancyWorldGen(), 3);
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
+        proxy.registerRenderers();
         ManaCapabilityHandler.register();
     }
 
