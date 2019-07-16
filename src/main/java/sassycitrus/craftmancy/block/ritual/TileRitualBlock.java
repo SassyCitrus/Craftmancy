@@ -18,6 +18,15 @@ public class TileRitualBlock extends TileEntityBase
         {
             return 1;
         }
+
+        @Override
+        public void onContentsChanged(int slot)
+        {
+            if (!world.isRemote)
+            {
+                sendUpdates();
+            }
+        }
     };
 
     @Override
