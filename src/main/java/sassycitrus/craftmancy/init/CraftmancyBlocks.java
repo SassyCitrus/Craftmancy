@@ -25,6 +25,9 @@ import sassycitrus.craftmancy.block.manafurnace.BlockManaFurnace;
 import sassycitrus.craftmancy.block.manafurnace.TileManaFurnace;
 import sassycitrus.craftmancy.block.ore.OreEdelila;
 import sassycitrus.craftmancy.block.ore.OreFeuermin;
+import sassycitrus.craftmancy.block.ritual.BlockRitual;
+import sassycitrus.craftmancy.block.ritual.BlockRitualAltar;
+import sassycitrus.craftmancy.block.ritual.TileRitual;
 
 public class CraftmancyBlocks
 {
@@ -44,6 +47,8 @@ public class CraftmancyBlocks
     public static Block ALTERBAUM_LEAVES = registerBlock(new LeavesAlterbaum());
     public static Block ARCANE_TABLE = registerBlock(new BlockArcaneTable());
     public static Block MANA_FURNACE = registerBlock(new BlockManaFurnace());
+    public static Block RITUAL_ALTAR = registerBlock(new BlockRitualAltar());
+    public static Block RITUAL_PEDESTAL = registerBlock(new BlockRitual("ritual_pedestal"));
 
     private static Block registerBlock(Block block)
     {
@@ -108,5 +113,6 @@ public class CraftmancyBlocks
     public static void registerTileEntities()
     {
         GameRegistry.registerTileEntity(TileManaFurnace.class, new ResourceLocation("craftmancy:mana_furnace"));
+        GameRegistry.registerTileEntity(TileRitual.class, new ResourceLocation("craftmancy:ritual_block"));
     }
 }
