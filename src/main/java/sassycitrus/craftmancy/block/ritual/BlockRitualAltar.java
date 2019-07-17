@@ -1,13 +1,18 @@
 package sassycitrus.craftmancy.block.ritual;
 
+import javax.annotation.Nullable;
+
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import sassycitrus.craftmancy.crafting.RitualAltarCraftingManager;
+import sassycitrus.craftmancy.crafting.RitualAltarCraftingManager.RitualRecipe;
 import sassycitrus.craftmancy.init.CraftmancyBlocks;
 import sassycitrus.craftmancy.item.tool.Wand;
 import sassycitrus.craftmancy.util.StringUtil;
@@ -29,13 +34,29 @@ public class BlockRitualAltar extends BlockRitual
 
             if (heldItem.getItem() instanceof Wand)
             {
-                StringUtil.sendMessage(player, isValidAltar(world, pos) ? "Is Valid Altar" : "Is Not Valid Altar");
+                if (isValidAltar(world, pos))
+                {
+                    RitualRecipe recipe = getRecipe(world, pos);
+
+                    if (recipe != null)
+                    {
+                        StringUtil.sendMessage(player, "Is a valid recipe");
+                    }
+                }
+                else
+                {
+                    StringUtil.sendMessage(player, "info.craftmancy.ritualAltarInvalid");
+                }
 
                 return true;
             }
+            else
+            {
+                return super.onBlockActivated(world, pos, state, player, hand, facing, hitX, hitY, hitZ);
+            }
         }
 
-        return super.onBlockActivated(world, pos, state, player, hand, facing, hitX, hitY, hitZ);
+        return true;
     }
 
     public boolean isValidAltar(World world, BlockPos pos)
@@ -54,5 +75,23 @@ public class BlockRitualAltar extends BlockRitual
         }
 
         return false;
+    }
+
+    @Nullable
+    public RitualRecipe getRecipe(World world, BlockPos pos)
+    {
+        ItemStack altarInput = getTileEntity(world, pos).getItem();
+
+        ItemStack[] pedestalItems = new ItemStack[]
+        {
+            getTileEntity(world, pos.add(-1, 0, 1)).getItem(),
+            getTileEntity(world, pos.add(1, 0, 1)).getItem(),
+            getTileEntity(world, pos.add(-1, 0, -1)).getItem(),
+            getTileEntity(world, pos.add(1, 0, -1)).getItem()
+        };
+
+        NonNullList<ItemStack> pedestalInput = NonNullList.from(ItemStack.EMPTY, pedestalItems);
+
+        return RitualAltarCraftingManager.getRecipe(altarInput, pedestalInput);
     }
 }
