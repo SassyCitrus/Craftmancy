@@ -2,6 +2,7 @@ package sassycitrus.craftmancy.block.ritual;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;
@@ -55,5 +56,10 @@ public class TileRitualBlock extends TileEntityBase
     public <T> T getCapability(Capability<T> capability, @Nullable EnumFacing facing)
     {
         return capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY ? (T) inventory : super.getCapability(capability, facing);
+    }
+
+    public ItemStack getItem()
+    {
+        return this.inventory.getStackInSlot(0);
     }
 }
