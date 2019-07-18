@@ -2,12 +2,16 @@ package sassycitrus.craftmancy.init;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.item.crafting.Ingredient;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.OreIngredient;
 import sassycitrus.craftmancy.Craftmancy;
+import sassycitrus.craftmancy.crafting.RitualAltarCraftingManager;
+import sassycitrus.craftmancy.crafting.RitualAltarCraftingManager.RitualRecipe;
 
 @Mod.EventBusSubscriber(modid = Craftmancy.modid)
 public class CraftmancyRecipes
@@ -29,5 +33,20 @@ public class CraftmancyRecipes
         OreDictionary.registerOre("ingotMithril", CraftmancyItems.INGOT_MITHRIL);
 
         GameRegistry.addSmelting(CraftmancyBlocks.ORE_MITHRIL, new ItemStack(CraftmancyItems.INGOT_MITHRIL), 0.8F);
+
+        registerRituals();
+    }
+
+    public static void registerRituals()
+    {
+        RitualAltarCraftingManager.addRecipe(
+            new RitualRecipe.Builder().setResult(CraftmancyItems.INGOT_MITHRIL).setCost(100)
+            .setAltarIngredient(Ingredient.fromItem(CraftmancyItems.EDELILA_APPLE))
+            .addPedestalIngredient(Ingredient.fromItem(CraftmancyItems.GEM_EDELILA))
+            .addPedestalIngredient(Ingredient.fromItem(CraftmancyItems.INGOT_FEUERSTEEL))
+            .addPedestalIngredient(new OreIngredient("logWood"))
+            .addPedestalIngredient(new OreIngredient("stone"))
+            .build()
+        );
     }
 }
