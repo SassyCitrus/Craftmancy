@@ -6,9 +6,7 @@ import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import sassycitrus.craftmancy.Craftmancy;
-import sassycitrus.craftmancy.capability.ManaCapabilityHandler;
-import sassycitrus.craftmancy.capability.ManaCapabilityHandler.IManaHandler;
-import sassycitrus.craftmancy.network.Network;
+import sassycitrus.craftmancy.util.ManaUtil;
 
 public class FoodAppleEdelila extends ItemFood
 {
@@ -29,9 +27,7 @@ public class FoodAppleEdelila extends ItemFood
     {
         if (!world.isRemote)
         {
-            IManaHandler playerMana = ManaCapabilityHandler.getHandler(player);
-            playerMana.addMana(MANA_GIVEN);
-            Network.syncPlayerMana(player);
+            ManaUtil.addMana(player, MANA_GIVEN);
         }
     }
     

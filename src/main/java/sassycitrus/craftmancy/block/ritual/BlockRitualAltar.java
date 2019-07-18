@@ -1,7 +1,5 @@
 package sassycitrus.craftmancy.block.ritual;
 
-import java.util.ArrayList;
-
 import javax.annotation.Nullable;
 
 import net.minecraft.block.state.IBlockState;
@@ -19,7 +17,7 @@ import sassycitrus.craftmancy.crafting.RitualAltarCraftingManager;
 import sassycitrus.craftmancy.crafting.RitualAltarCraftingManager.RitualRecipe;
 import sassycitrus.craftmancy.init.CraftmancyBlocks;
 import sassycitrus.craftmancy.item.tool.Wand;
-import sassycitrus.craftmancy.network.Network;
+import sassycitrus.craftmancy.util.ManaUtil;
 import sassycitrus.craftmancy.util.StringUtil;
 
 public class BlockRitualAltar extends BlockRitual
@@ -63,8 +61,7 @@ public class BlockRitualAltar extends BlockRitual
                 if (handler.getMana() >= recipe.getCost())
                 {
                     removeItems(world, pos);
-                    handler.removeMana(recipe.getCost());
-                    Network.syncPlayerMana(player);
+                    ManaUtil.removeMana(player, recipe.getCost());
                     getTileEntity(world, pos).setItem(recipe.getResult().copy());
                 }
                 else

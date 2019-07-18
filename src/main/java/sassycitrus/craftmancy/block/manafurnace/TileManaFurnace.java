@@ -16,8 +16,7 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import sassycitrus.craftmancy.block.TileEntityBase;
-import sassycitrus.craftmancy.capability.ManaCapabilityHandler;
-import sassycitrus.craftmancy.network.Network;
+import sassycitrus.craftmancy.util.ManaUtil;
 import sassycitrus.craftmancy.util.PlayerUtil;
 
 public class TileManaFurnace extends TileEntityBase implements ITickable
@@ -101,9 +100,7 @@ public class TileManaFurnace extends TileEntityBase implements ITickable
                 if (this.ticksTillMana == TICKS_TILL_MANA)
                 {
                     this.ticksTillMana = 0;
-
-                    ManaCapabilityHandler.getHandler(player).addMana(MANA_RATE);
-                    Network.syncPlayerMana((EntityPlayer) player);
+                    ManaUtil.addMana(player, MANA_RATE);
                 }
             }
         }
