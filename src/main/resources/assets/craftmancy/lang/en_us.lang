@@ -1,6 +1,9 @@
 itemGroup.craftmancy=Craftmancy
 
 info.craftmancy.holdShiftForDetails=Hold §e§oShift§r§7 for Details§r
+info.craftmancy.ritualAltarInvalid=Altar Setup is Invalid
+info.craftmancy.ritualAltarManaLow=Not Enough Mana for Ritual
+
 info.craftmancy.wand_iron_diamond=Iron binding with Diamond gemstone
 info.craftmancy.wand_gold_emerald=Gold Binding with Emerald gemstone
 info.craftmancy.wand_mithril_edelila=Mithril binding with Edelila gemstone
@@ -21,6 +24,9 @@ tile.alterbaum_sapling.name=Alterbaum Sapling
 tile.alterbaum_leaves.name=Alterbaum Leaves
 
 tile.arcane_table.name=Arcane Workbench
+tile.mana_furnace.name=Mana Furnace
+tile.ritual_altar.name=Ritual Altar
+tile.ritual_pedestal.name=Ritual Pedestal
 
 item.gem_edelila.name=Edelila
 item.feuermin.name=Feuermin
