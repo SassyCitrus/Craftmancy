@@ -19,11 +19,10 @@ import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import sassycitrus.craftmancy.Craftmancy;
 import sassycitrus.craftmancy.network.Network;
+import sassycitrus.craftmancy.util.ManaUtil;
 
 public class ManaCapabilityHandler
 {
-    private static final int DEFAULT_CAPACITY = 1000;
-
     @CapabilityInject(IManaHandler.class)
     public static final Capability<IManaHandler> CAPABILITY_MANA = null;
 
@@ -59,6 +58,8 @@ public class ManaCapabilityHandler
         final IManaHandler clone = getHandler(event.getEntity());
 
         clone.setMana(original.getMana());
+        clone.setManaLevel(original.getManaLevel());
+        Network.syncPlayerMana((EntityPlayer) event.getEntity());
     }
 
     public static IManaHandler getHandler(Entity entity)
@@ -73,12 +74,21 @@ public class ManaCapabilityHandler
 
     public interface IManaHandler
     {
-        int getCapacity();
-        void setCapacity(int capacity);
+        int getManaLevel();
+        void setManaLevel(int level);
+        void addManaLevel(int level);
+        void addManaLevel();
+        boolean removeManaLevel(int level);
+
+        int getManaTotal();
+        void setManaTotal(int mana);
+        void addManaTotal(int mana);
+        void removeManaTotal(int mana);
+
         int getMana();
         void setMana(int mana);
         void addMana(int mana);
-        boolean removeMana(int mana);
+        void removeMana(int mana);
     }
 
     public static class ManaFactory implements Callable<IManaHandler>
@@ -88,21 +98,10 @@ public class ManaCapabilityHandler
         {
             IManaHandler handler  = new IManaHandler()
             {
-                private int capacity;
+                private int manaLevel;
+                private int manaTotal;
                 private int mana;
-
-                @Override
-                public int getCapacity()
-                {
-                    return this.capacity;
-                }
-
-                @Override
-                public void setCapacity(int capacity)
-                {
-                    this.capacity = capacity;
-                }
-
+                
                 @Override
                 public int getMana()
                 {
@@ -113,44 +112,90 @@ public class ManaCapabilityHandler
                 public void setMana(int mana)
                 {
                     this.mana = mana;
-
-                    if (this.mana > this.capacity)
-                    {
-                        this.mana = this.capacity;
-                    }
                 }
 
                 @Override
                 public void addMana(int mana)
                 {
                     this.mana += mana;
+                }
 
-                    if (this.mana > this.capacity)
+                @Override
+                public void removeMana(int mana)
+                {
+                    this.mana -= mana;
+                }
+
+                @Override
+                public int getManaLevel()
+                {
+                    return this.manaLevel;
+                }
+
+                @Override
+                public void setManaLevel(int level)
+                {
+                    this.manaLevel = level;
+                }
+
+                @Override
+                public void addManaLevel(int level)
+                {
+                    this.manaLevel += level;
+                }
+
+                @Override
+                public void addManaLevel()
+                {
+                    addManaLevel(1);
+                }
+
+                @Override
+                public boolean removeManaLevel(int level)
+                {
+                    if (this.manaLevel >= level)
                     {
-                        this.mana = this.capacity;
+                        for (int i = 0; i < level; i++)
+                        {
+                            int manaForLevel = ManaUtil.calculateManaForLevel(this.manaLevel - 1);
+                            this.manaTotal -= manaForLevel;
+                            this.manaLevel--;
+                        }
+
+                        ManaUtil.updateLevels(this);
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
                     }
                 }
 
                 @Override
-                public boolean removeMana(int mana)
+                public int getManaTotal()
                 {
-                    if (this.mana < mana)
-                    {
-                        return false;
-                    }
+                    return this.manaTotal;
+                }
 
-                    this.mana -= mana;
+                @Override
+                public void setManaTotal(int mana)
+                {
+                    this.manaTotal = mana;
+                }
 
-                    if (this.mana < 0)
-                    {
-                        this.mana = 0;
-                    }
+                @Override
+                public void addManaTotal(int mana)
+                {
+                    this.manaTotal += mana;
+                }
 
-                    return true;
+                @Override
+                public void removeManaTotal(int mana)
+                {
+                    this.manaTotal -= mana;
                 }
             };
 
-            handler.setCapacity(DEFAULT_CAPACITY);
             return handler;
         }
     }
@@ -161,7 +206,8 @@ public class ManaCapabilityHandler
         public NBTBase writeNBT(Capability<IManaHandler> capability, IManaHandler instance, EnumFacing side)
         {
             final NBTTagCompound nbt = new NBTTagCompound();
-            nbt.setInteger("capacity", instance.getCapacity());
+            nbt.setInteger("manaLevel", instance.getManaLevel());
+            nbt.setInteger("manaTotal", instance.getManaTotal());
             nbt.setInteger("mana", instance.getMana());
             return nbt;
         }
@@ -170,7 +216,8 @@ public class ManaCapabilityHandler
         public void readNBT(Capability<IManaHandler> capability, IManaHandler instance, EnumFacing side, NBTBase baseNBT)
         {
             final NBTTagCompound nbt = (NBTTagCompound) baseNBT;
-            instance.setCapacity(nbt.getInteger("capacity"));
+            instance.setManaLevel(nbt.getInteger("manaLevel"));
+            instance.setManaTotal(nbt.getInteger("manaTotal"));
             instance.setMana(nbt.getInteger("mana"));
         }
     }

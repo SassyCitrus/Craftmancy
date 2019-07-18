@@ -13,6 +13,7 @@ import net.minecraft.util.text.TextFormatting;
 import sassycitrus.craftmancy.capability.ManaCapabilityHandler;
 import sassycitrus.craftmancy.capability.ManaCapabilityHandler.IManaHandler;
 import sassycitrus.craftmancy.network.Network;
+import sassycitrus.craftmancy.util.ManaUtil;
 
 public class CommandMana extends CommandBase
 {
@@ -34,35 +35,35 @@ public class CommandMana extends CommandBase
     {
         if (sender instanceof EntityPlayer)
         {
-            IManaHandler player = ManaCapabilityHandler.getHandler((EntityPlayer) sender);
+            EntityPlayer player = (EntityPlayer) sender;
+            IManaHandler handler = ManaCapabilityHandler.getHandler(player);
 
             if (args.length > 0)
             {
-                try
+                if (args[0].equals("clear"))
                 {
-                    int mana = Integer.parseInt(args[0]);
-                    player.setMana(mana);
+                    handler.setManaLevel(0);
+                    handler.setManaTotal(0);
+                    handler.setMana(0);
+                    Network.syncPlayerMana(player);
                 }
-                catch (NumberFormatException e)
+                else
                 {
-                    throw new NumberInvalidException("commands.generic.num.invalid", args[0]);
-                }
-            }
-            
-            if (args.length > 1)
-            {
-                try
-                {
-                    int capacity = Integer.parseInt(args[1]);
-                    player.setCapacity(capacity);
-                }
-                catch (NumberFormatException e)
-                {
-                    throw new NumberInvalidException("commands.generic.num.invalid", args[1]);
+                    try
+                    {
+                        int mana = Integer.parseInt(args[0]);
+                        ManaUtil.addMana((EntityPlayer) sender, mana);
+                    }
+                    catch (NumberFormatException e)
+                    {
+                        throw new NumberInvalidException("commands.generic.num.invalid", args[0]);
+                    }
                 }
             }
 
-            sender.sendMessage(new TextComponentString(TextFormatting.BLUE + "Mana" + TextFormatting.RESET + ": "  + player.getMana() + "/" + player.getCapacity()));
+            sender.sendMessage(new TextComponentString(TextFormatting.BLUE + "Mana Level" + TextFormatting.RESET + ": "  + handler.getManaLevel()));
+            sender.sendMessage(new TextComponentString(TextFormatting.BLUE + "Mana Total" + TextFormatting.RESET + ": "  + handler.getManaTotal()));
+            sender.sendMessage(new TextComponentString(TextFormatting.BLUE + "Mana" + TextFormatting.RESET + ": "  + handler.getMana()));
 
             Network.syncPlayerMana((EntityPlayer) sender);
         }

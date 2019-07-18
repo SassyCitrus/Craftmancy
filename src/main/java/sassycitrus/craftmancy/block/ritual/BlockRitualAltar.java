@@ -11,8 +11,6 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import sassycitrus.craftmancy.capability.ManaCapabilityHandler;
-import sassycitrus.craftmancy.capability.ManaCapabilityHandler.IManaHandler;
 import sassycitrus.craftmancy.crafting.RitualAltarCraftingManager;
 import sassycitrus.craftmancy.crafting.RitualAltarCraftingManager.RitualRecipe;
 import sassycitrus.craftmancy.init.CraftmancyBlocks;
@@ -57,11 +55,9 @@ public class BlockRitualAltar extends BlockRitual
 
             if (recipe != null)
             {
-                IManaHandler handler = ManaCapabilityHandler.getHandler(player);
-                if (handler.getMana() >= recipe.getCost())
+                if (ManaUtil.removeManaLevel(player, recipe.getCost()))
                 {
                     removeItems(world, pos);
-                    ManaUtil.removeMana(player, recipe.getCost());
                     getTileEntity(world, pos).setItem(recipe.getResult().copy());
                 }
                 else

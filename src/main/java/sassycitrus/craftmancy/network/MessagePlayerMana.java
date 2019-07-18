@@ -15,7 +15,7 @@ public class MessagePlayerMana implements IMessage, IMessageHandler<MessagePlaye
 
     private IManaHandler serverPlayer;
 
-    // [player::mana, player::capacity]
+    // [player::manaLevel, player::manaTotal, player::mana]
     private int[] clientData;
 
     public MessagePlayerMana() {}
@@ -33,15 +33,16 @@ public class MessagePlayerMana implements IMessage, IMessageHandler<MessagePlaye
     @Override
     public void fromBytes(ByteBuf buf)
     {
-        clientData = new int[]{buf.readInt(), buf.readInt()};
+        clientData = new int[]{buf.readInt(), buf.readInt(), buf.readInt()};
     }
 
     // Server serialization
     @Override
     public void toBytes(ByteBuf buf)
     {
+        buf.writeInt(serverPlayer.getManaLevel());
+        buf.writeInt(serverPlayer.getManaTotal());
         buf.writeInt(serverPlayer.getMana());
-        buf.writeInt(serverPlayer.getCapacity());
     }
 
     // Client handling
@@ -54,8 +55,9 @@ public class MessagePlayerMana implements IMessage, IMessageHandler<MessagePlaye
 
             if (player != null)
             {
-                player.setMana(message.clientData[0]);
-                player.setCapacity(message.clientData[1]);
+                player.setManaLevel(message.clientData[0]);
+                player.setManaTotal(message.clientData[1]);
+                player.setMana(message.clientData[2]);
             }
         });
 
