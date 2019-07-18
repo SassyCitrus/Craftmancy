@@ -1,5 +1,7 @@
 package sassycitrus.craftmancy.block.ritual;
 
+import java.util.ArrayList;
+
 import javax.annotation.Nullable;
 
 import net.minecraft.block.state.IBlockState;
@@ -11,10 +13,13 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import sassycitrus.craftmancy.capability.ManaCapabilityHandler;
+import sassycitrus.craftmancy.capability.ManaCapabilityHandler.IManaHandler;
 import sassycitrus.craftmancy.crafting.RitualAltarCraftingManager;
 import sassycitrus.craftmancy.crafting.RitualAltarCraftingManager.RitualRecipe;
 import sassycitrus.craftmancy.init.CraftmancyBlocks;
 import sassycitrus.craftmancy.item.tool.Wand;
+import sassycitrus.craftmancy.network.Network;
 import sassycitrus.craftmancy.util.StringUtil;
 
 public class BlockRitualAltar extends BlockRitual
@@ -34,20 +39,7 @@ public class BlockRitualAltar extends BlockRitual
 
             if (heldItem.getItem() instanceof Wand)
             {
-                if (isValidAltar(world, pos))
-                {
-                    RitualRecipe recipe = getRecipe(world, pos);
-
-                    if (recipe != null)
-                    {
-                        StringUtil.sendMessage(player, "Is a valid recipe");
-                    }
-                }
-                else
-                {
-                    StringUtil.sendMessage(player, "info.craftmancy.ritualAltarInvalid");
-                }
-
+                performRitual(world, pos, player);
                 return true;
             }
             else
@@ -57,6 +49,34 @@ public class BlockRitualAltar extends BlockRitual
         }
 
         return true;
+    }
+
+    public void performRitual(World world, BlockPos pos, EntityPlayer player)
+    {            
+        if (isValidAltar(world, pos))
+        {
+            RitualRecipe recipe = getRecipe(world, pos);
+
+            if (recipe != null)
+            {
+                IManaHandler handler = ManaCapabilityHandler.getHandler(player);
+                if (handler.getMana() >= recipe.getCost())
+                {
+                    removeItems(world, pos);
+                    handler.removeMana(recipe.getCost());
+                    Network.syncPlayerMana(player);
+                    getTileEntity(world, pos).setItem(recipe.getResult().copy());
+                }
+                else
+                {
+                    StringUtil.sendMessage(player, "info.craftmancy.ritualAltarManaLow");
+                }
+            }
+        }
+        else
+        {
+            StringUtil.sendMessage(player, "info.craftmancy.ritualAltarInvalid");
+        }
     }
 
     public boolean isValidAltar(World world, BlockPos pos)
@@ -82,16 +102,23 @@ public class BlockRitualAltar extends BlockRitual
     {
         ItemStack altarInput = getTileEntity(world, pos).getItem();
 
-        ItemStack[] pedestalItems = new ItemStack[]
-        {
-            getTileEntity(world, pos.add(-1, 0, 1)).getItem(),
-            getTileEntity(world, pos.add(1, 0, 1)).getItem(),
-            getTileEntity(world, pos.add(-1, 0, -1)).getItem(),
-            getTileEntity(world, pos.add(1, 0, -1)).getItem()
-        };
+        ItemStack[] pedestalItems = new ItemStack[4];
+        pedestalItems[0] = getTileEntity(world, pos.add(-1, 0, 1)).getItem();
+        pedestalItems[1] = getTileEntity(world, pos.add(1, 0, 1)).getItem();
+        pedestalItems[2] = getTileEntity(world, pos.add(-1, 0, -1)).getItem();
+        pedestalItems[3] = getTileEntity(world, pos.add(1, 0, -1)).getItem();
 
         NonNullList<ItemStack> pedestalInput = NonNullList.from(ItemStack.EMPTY, pedestalItems);
 
         return RitualAltarCraftingManager.getRecipe(altarInput, pedestalInput);
+    }
+
+    public void removeItems(World world, BlockPos pos)
+    {
+        getTileEntity(world, pos).removeItem();
+        getTileEntity(world, pos.add(-1, 0, 1)).removeItem();
+        getTileEntity(world, pos.add(1, 0, 1)).removeItem();
+        getTileEntity(world, pos.add(-1, 0, -1)).removeItem();
+        getTileEntity(world, pos.add(1, 0, -1)).removeItem();
     }
 }
