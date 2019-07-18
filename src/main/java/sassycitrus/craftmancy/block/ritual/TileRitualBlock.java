@@ -62,4 +62,14 @@ public class TileRitualBlock extends TileEntityBase
     {
         return this.inventory.getStackInSlot(0);
     }
+
+    public void removeItem()
+    {
+        this.inventory.extractItem(0, 1, false);
+    }
+
+    public void setItem(ItemStack item)
+    {
+        this.inventory.setStackInSlot(0, item);
+    }
 }
