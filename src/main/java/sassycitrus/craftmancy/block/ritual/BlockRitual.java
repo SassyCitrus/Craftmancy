@@ -1,5 +1,6 @@
 package sassycitrus.craftmancy.block.ritual;
 
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,7 +11,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -21,6 +22,7 @@ public class BlockRitual extends BlockBase
     public BlockRitual(String name)
     {
         super(Material.ROCK, name);
+        setSoundType(SoundType.STONE);
         setHardness(2.5F);
     }
 
@@ -72,6 +74,11 @@ public class BlockRitual extends BlockBase
                 {
                     te.inventory.extractItem(0, 1, false);
                     heldItem.grow(1);
+                }
+
+                if (te.getItem().isEmpty())
+                {
+                    world.playSound(null, pos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.PLAYERS, 1.0F, 1.0F);
                 }
             }
             else
