@@ -1,5 +1,6 @@
 package sassycitrus.craftmancy.block.manafurnace;
 
+import java.util.List;
 import java.util.UUID;
 
 import javax.annotation.Nullable;
@@ -11,6 +12,7 @@ import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.items.CapabilityItemHandler;
@@ -22,7 +24,7 @@ import sassycitrus.craftmancy.util.PlayerUtil;
 public class TileManaFurnace extends TileEntityBase implements ITickable
 {
     public static final int TICKS_TILL_MANA = 50;
-    public static final int MANA_RATE = 5;
+    public static final int MANA_RATE = 1;
 
     private ItemStackHandler inventory = new ItemStackHandler(1);
     private UUID playerUUID = PlayerUtil.DEFAULT_UUID;
@@ -87,20 +89,13 @@ public class TileManaFurnace extends TileEntityBase implements ITickable
 
             if (!this.world.isRemote)
             {
-                EntityPlayer player = PlayerUtil.getPlayerFromUUID(this.playerUUID);
-
-                if (player == null)
-                {
-                    // Player doesn't exist or offline
-                    return;
-                }
 
                 ticksTillMana++;
 
                 if (this.ticksTillMana == TICKS_TILL_MANA)
                 {
                     this.ticksTillMana = 0;
-                    ManaUtil.addMana(player, MANA_RATE);
+                    generateMana();
                 }
             }
         }
@@ -133,6 +128,20 @@ public class TileManaFurnace extends TileEntityBase implements ITickable
     private void consumeFuel()
     {
         this.inventory.extractItem(0, 1, false);
+    }
+
+    private void generateMana()
+    {
+        AxisAlignedBB aoe = getRenderBoundingBox().grow(2, 2, 2);
+        List<EntityPlayer> players = this.world.getEntitiesWithinAABB(EntityPlayer.class, aoe);
+
+        for (EntityPlayer player : players)
+        {
+            if (PlayerUtil.getUUIDFromPlayer(player) == this.playerUUID)
+            {
+                ManaUtil.addMana(player, MANA_RATE);
+            }
+        }
     }
 
     public void setPlayerUUID(UUID player)
