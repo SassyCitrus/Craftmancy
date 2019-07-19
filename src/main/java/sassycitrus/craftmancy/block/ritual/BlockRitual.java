@@ -3,12 +3,14 @@ package sassycitrus.craftmancy.block.ritual;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -60,14 +62,17 @@ public class BlockRitual extends BlockBase
             TileRitualBlock te = getTileEntity(world, pos);
             ItemStack heldItem = player.getHeldItem(hand);
             
-            if (heldItem.isEmpty())
+            if (!te.getItem().isEmpty())
             {
-                player.setHeldItem(hand, te.inventory.extractItem(0, 1, false));
-            }
-            else if (heldItem.getCount() < heldItem.getMaxStackSize() && heldItem.isItemEqual(te.inventory.getStackInSlot(0)))
-            {
-                te.inventory.extractItem(0, 1, false);
-                heldItem.grow(1);
+                if (heldItem.isEmpty())
+                {
+                    player.setHeldItem(hand, te.inventory.extractItem(0, 1, false));
+                }
+                else if (heldItem.getCount() < heldItem.getMaxStackSize() && heldItem.isItemEqual(te.getItem()))
+                {
+                    te.inventory.extractItem(0, 1, false);
+                    heldItem.grow(1);
+                }
             }
             else
             {
