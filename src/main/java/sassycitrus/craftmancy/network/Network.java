@@ -14,6 +14,7 @@ public class Network
     public static void register()
     {
         INSTANCE.registerMessage(MessagePlayerMana.class, MessagePlayerMana.class, 0, Side.CLIENT);
+        INSTANCE.registerMessage(MessageRitualParticle.class, MessageRitualParticle.class, 1, Side.CLIENT);
     }
 
     public static void sendTo(IMessage message, EntityPlayer player)

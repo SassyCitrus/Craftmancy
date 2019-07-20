@@ -4,17 +4,22 @@ import javax.annotation.Nullable;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import sassycitrus.craftmancy.crafting.RitualAltarCraftingManager;
 import sassycitrus.craftmancy.crafting.RitualAltarCraftingManager.RitualRecipe;
 import sassycitrus.craftmancy.init.CraftmancyBlocks;
 import sassycitrus.craftmancy.item.tool.Wand;
+import sassycitrus.craftmancy.network.MessageRitualParticle;
+import sassycitrus.craftmancy.network.Network;
 import sassycitrus.craftmancy.util.ManaUtil;
 import sassycitrus.craftmancy.util.StringUtil;
 
@@ -31,6 +36,7 @@ public class BlockRitualAltar extends BlockRitual
     {
         if (!world.isRemote)
         {
+            world.spawnParticle(EnumParticleTypes.EXPLOSION_NORMAL, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, world.rand.nextGaussian() * 0.02D, world.rand.nextGaussian() * 0.02D, world.rand.nextGaussian() * 0.02D);
             ItemStack heldItem = player.getHeldItem(hand);
 
             if (heldItem.getItem() instanceof Wand)
@@ -58,6 +64,8 @@ public class BlockRitualAltar extends BlockRitual
                 if (ManaUtil.removeManaLevel(player, recipe.getCost()))
                 {
                     removeItems(world, pos);
+                    Network.sendTo(new MessageRitualParticle(pos), player);
+                    world.playSound(null, pos, SoundEvents.BLOCK_ENCHANTMENT_TABLE_USE, SoundCategory.BLOCKS, 1.0F, 1.0F);
                     getTileEntity(world, pos).setItem(recipe.getResult().copy());
                 }
                 else
