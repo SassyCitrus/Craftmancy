@@ -28,7 +28,7 @@ public class TESRRitualBlock extends TileEntitySpecialRenderer<TileRitualBlock>
             GlStateManager.tryBlendFuncSeparate(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA, 1, 0);
             GlStateManager.pushMatrix();
 
-            GlStateManager.translate(x + 0.5, y + 1.125, z + 0.5);
+            GlStateManager.translate(x + 0.5, y + 1.12, z + 0.5);
             GlStateManager.rotate((te.getWorld().getTotalWorldTime() + partialTicks) * 2, 0 ,1 ,0);
 
             IBakedModel model = Minecraft.getMinecraft().getRenderItem().getItemModelWithOverrides(stack, te.getWorld(), null);
