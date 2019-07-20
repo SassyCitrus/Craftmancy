@@ -21,6 +21,7 @@ public class CraftmancyItems
     public static Item WAND_IRON_DIAMOND = registerItem(new Wand("iron_diamond"));
     public static Item WAND_GOLD_EMERALD = registerItem(new Wand("gold_emerald"));
     public static Item WAND_MITHRIL_EDELILA = registerItem(new Wand("mithril_edelila"));
+    public static Item CORE_BLANK = registerItem("core_blank");
 
     private static Item registerItem(Item item)
     {
