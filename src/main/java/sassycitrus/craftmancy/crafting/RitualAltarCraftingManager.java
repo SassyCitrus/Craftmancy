@@ -10,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.NonNullList;
 import net.minecraftforge.common.util.RecipeMatcher;
+import net.minecraftforge.oredict.OreIngredient;
 
 public class RitualAltarCraftingManager
 {
@@ -103,21 +104,60 @@ public class RitualAltarCraftingManager
                 return this;
             }
 
-            public Builder setAltarIngredient(Ingredient altar)
+            public Builder setAltarIngredient(Block block)
             {
-                this.altar = altar;
+                this.altar = getIngredient(block);
                 return this;
             }
 
-            public Builder addPedestalIngredient(Ingredient pedestal)
+            public Builder setAltarIngredient(Item item)
             {
-                this.pedestal.add(pedestal);
+                this.altar = getIngredient(item);
+                return this;
+            }
+
+            public Builder setAltarIngredient(String ore)
+            {
+                this.altar = getIngredient(ore);
+                return this;
+            }
+
+            public Builder addPedestalIngredient(Block block)
+            {
+                this.pedestal.add(getIngredient(block));
+                return this;
+            }
+
+            public Builder addPedestalIngredient(Item item)
+            {
+                this.pedestal.add(getIngredient(item));
+                return this;
+            }
+
+            public Builder addPedestalIngredient(String ore)
+            {
+                this.pedestal.add(getIngredient(ore));
                 return this;
             }
 
             public RitualRecipe build()
             {
                 return new RitualRecipe(this.result, this.cost, this.altar, this.pedestal);
+            }
+
+            private static Ingredient getIngredient(Block block)
+            {
+                return Ingredient.fromItem(Item.getItemFromBlock(block));
+            }
+
+            private static Ingredient getIngredient(Item item)
+            {
+                return Ingredient.fromItem(item);
+            }
+
+            private static OreIngredient getIngredient(String ore)
+            {
+                return new OreIngredient(ore);
             }
         }
     }
