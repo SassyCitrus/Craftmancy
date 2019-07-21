@@ -25,6 +25,14 @@ public class GuiManaFurnace extends GuiContainer
     }
 
     @Override
+    public void drawScreen(int mouseX, int mouseY, float partialTicks)
+    {
+        this.drawDefaultBackground();
+        super.drawScreen(mouseX, mouseY, partialTicks);
+        this.renderHoveredToolTip(mouseX, mouseY);
+    }
+
+    @Override
     protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY)
     {
         GlStateManager.color(1, 1, 1, 1);
@@ -42,6 +50,14 @@ public class GuiManaFurnace extends GuiContainer
         }
     }
 
+    @Override
+    protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
+    {
+        String name = StringUtil.localize(CraftmancyBlocks.MANA_FURNACE.getUnlocalizedName() + ".name");
+        fontRenderer.drawString(name, xSize / 2 - fontRenderer.getStringWidth(name) / 2, 6, 0x333333);
+        fontRenderer.drawString(playerInventory.getDisplayName().getUnformattedComponentText(), 8, ySize - 94, 0x333333);
+    }
+
     private int getBurnLeftScaled(int pixels)
     {
         int i = this.tileManaFurnace.currentItemBurnTime;
@@ -52,13 +68,5 @@ public class GuiManaFurnace extends GuiContainer
         }
 
         return this.tileManaFurnace.furnaceBurnTime * pixels / i;
-    }
-
-    @Override
-    protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
-    {
-        String name = StringUtil.localize(CraftmancyBlocks.MANA_FURNACE.getUnlocalizedName() + ".name");
-        fontRenderer.drawString(name, xSize / 2 - fontRenderer.getStringWidth(name) / 2, 6, 0x333333);
-        fontRenderer.drawString(playerInventory.getDisplayName().getUnformattedComponentText(), 8, ySize - 94, 0x333333);
     }
 }
