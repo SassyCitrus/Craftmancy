@@ -35,6 +35,7 @@ item.ingot_feuersteel.name=Feuersteel Ingot
 item.apple_edelila.name=Edelila Apple
 
 item.core_blank.name=Blank Core
+item.core_furnace.name=Furnace Core
 
 item.wand_iron_diamond.name=Wand of Craftmancy
 item.wand_gold_emerald.name=Wand of Craftmancy
