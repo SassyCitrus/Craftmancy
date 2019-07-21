@@ -1,0 +1,17 @@
+{
+    "type": "craftmancy:arcane_table",
+    "pattern": [
+        " M ",
+        "MMM",
+        " M "
+    ],
+    "key":{
+        "M": {
+            "type": "forge:ore_dict",
+            "ore": "ingotMithril"
+        }
+    },
+    "result": {
+        "item": "craftmancy:core_blank"
+    }
+}
