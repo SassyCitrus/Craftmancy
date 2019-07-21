@@ -1,5 +1,8 @@
 package sassycitrus.craftmancy.init;
 
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.Ingredient;
@@ -40,12 +43,12 @@ public class CraftmancyRecipes
     public static void registerRituals()
     {
         RitualAltarCraftingManager.addRecipe(
-            new RitualRecipe.Builder().setResult(CraftmancyItems.INGOT_MITHRIL).setCost(100)
-            .setAltarIngredient(Ingredient.fromItem(CraftmancyItems.EDELILA_APPLE))
+            new RitualRecipe.Builder().setResult(CraftmancyItems.CORE_FURNACE).setCost(3)
+            .setAltarIngredient(Ingredient.fromItem(CraftmancyItems.CORE_BLANK))
             .addPedestalIngredient(Ingredient.fromItem(CraftmancyItems.GEM_EDELILA))
-            .addPedestalIngredient(Ingredient.fromItem(CraftmancyItems.INGOT_FEUERSTEEL))
-            .addPedestalIngredient(new OreIngredient("logWood"))
-            .addPedestalIngredient(new OreIngredient("stone"))
+            .addPedestalIngredient(Ingredient.fromItem(Items.COAL))
+            .addPedestalIngredient(Ingredient.fromItem(Item.getItemFromBlock(Blocks.FURNACE)))
+            .addPedestalIngredient(new OreIngredient("blockCoal"))
             .build()
         );
     }
