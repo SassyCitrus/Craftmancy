@@ -1,0 +1,17 @@
+{
+    "type": "craftmancy:arcane_table",
+    "pattern": [
+        "S S",
+        "SSS",
+        " S "
+    ],
+    "key":{
+        "S": {
+            "type": "forge:ore_dict",
+            "ore": "stone"
+        }
+    },
+    "result": {
+        "item": "craftmancy:ritual_pedestal"
+    }
+}

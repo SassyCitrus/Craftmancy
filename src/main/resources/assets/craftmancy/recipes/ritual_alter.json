@@ -1,0 +1,21 @@
+{
+    "type": "craftmancy:arcane_table",
+    "pattern": [
+        "SCS",
+        "SSS",
+        "SSS"
+    ],
+    "key":{
+        "S": {
+            "type": "forge:ore_dict",
+            "ore": "stone"
+        },
+        "C": {
+            "item": "minecraft:carpet",
+            "data": 32767
+        }
+    },
+    "result": {
+        "item": "craftmancy:ritual_altar"
+    }
+}
