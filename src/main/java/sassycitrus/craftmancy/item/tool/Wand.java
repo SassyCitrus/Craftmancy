@@ -22,13 +22,6 @@ public class Wand extends ItemBase
     @Override
     public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn)
     {
-        if (StringUtil.isShiftKeyDown())
-        {
-            tooltip.add(StringUtil.getInfoText("info.craftmancy." + name));
-        }
-        else
-        {
-            tooltip.add(StringUtil.shiftForDetails());
-        }
+        tooltip.add(StringUtil.getInfoText("info.craftmancy." + name));
     }
 }
