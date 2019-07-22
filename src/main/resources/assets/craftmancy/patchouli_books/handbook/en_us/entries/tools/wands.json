@@ -5,8 +5,9 @@
     "category": "tools",
     "pages": [
         {
-            "type": "text",
-            "text": "List of wands"
+            "type": "crafting",
+            "recipe": "craftmancy:wand_craftmancy",
+            "text": "The basic Craftmancy wand. Holding will show your mana level. $(br2)Crafted in Arcane Workbench"
         }
     ]
 }
