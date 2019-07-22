@@ -1,8 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "craftmancy:items/wand/core_wood",
-		"layer1": "craftmancy:items/wand/binding_mithril",
-		"layer2": "craftmancy:items/wand/gem_edelila"
+        "layer0": "craftmancy:items/wand_craftmancy"
     }
 }
