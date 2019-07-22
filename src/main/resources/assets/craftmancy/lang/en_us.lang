@@ -5,6 +5,7 @@ info.craftmancy.ritualAltarInvalid=Altar Setup is Invalid
 info.craftmancy.ritualAltarManaLow=Not Enough Mana for Ritual
 
 info.craftmancy.wand_craftmancy=The Basic Craftmancy Wand
+info.craftmancy.wand_embers=Imbued with the Power of Embers
 
 tile.ore_edelila.name=Edelila Ore
 tile.ore_mithril.name=Mithril Ore
@@ -36,3 +37,4 @@ item.core_blank.name=Blank Core
 item.core_furnace.name=Furnace Core
 
 item.wand_craftmancy.name=Wand of Craftmancy
+item.wand_embers.name=Wand of Embers

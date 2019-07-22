@@ -6,6 +6,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.registries.IForgeRegistry;
 import sassycitrus.craftmancy.item.ItemBase;
 import sassycitrus.craftmancy.item.tool.Wand;
+import sassycitrus.craftmancy.item.tool.WandEmbers;
 import sassycitrus.craftmancy.Craftmancy;
 import sassycitrus.craftmancy.item.FoodAppleEdelila;
 
@@ -19,6 +20,7 @@ public class CraftmancyItems
     public static Item INGOT_FEUERSTEEL = registerItem("ingot_feuersteel");
     public static Item EDELILA_APPLE = registerItem(new FoodAppleEdelila());
     public static Item WAND_CRAFTMANCY = registerItem(new Wand("craftmancy"));
+    public static Item WAND_EMBERS = registerItem(new WandEmbers());
     public static Item CORE_BLANK = registerItem("core_blank");
     public static Item CORE_FURNACE = registerItem("core_furnace");
 
