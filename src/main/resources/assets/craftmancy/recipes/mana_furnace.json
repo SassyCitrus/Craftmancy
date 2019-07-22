@@ -1,0 +1,20 @@
+{
+    "type": "craftmancy:arcane_table",
+    "pattern": [
+        "III",
+        "ICI",
+        "III"
+    ],
+    "key":{
+        "I": {
+            "type": "forge:ore_dict",
+            "ore": "ingotIron"
+        },
+        "C": {
+            "item": "craftmancy:core_furnace"
+        }
+    },
+    "result": {
+        "item": "craftmancy:mana_furnace"
+    }
+}
