@@ -7,8 +7,7 @@
     ],
     "key":{
         "G": {
-            "type": "forge:ore_dict",
-            "ore": "gemEmerald"
+            "item": "craftmancy:gem_edelila"
         },
         "S": {
             "type": "forge:ore_dict",
@@ -16,10 +15,10 @@
         },
         "M": {
             "type": "forge:ore_dict",
-            "ore": "ingotGold"
+            "ore": "ingotMithril"
         }
     },
     "result": {
-        "item": "craftmancy:wand_gold_emerald"
+        "item": "craftmancy:wand_craftmancy"
     }
 }
