@@ -1,0 +1,18 @@
+{
+    "sortnum": 1,
+    "name": "Arcane Furnace",
+    "icon": "craftmancy:mana_furnace",
+    "category": "tools",
+    "pages": [
+        {
+            "type": "text",
+            "text": "Burns fuel to generate mana. Uses same items for fuel as a normal furnace."
+        },
+        {
+            "type": "crafting",
+            "recipe": "craftmancy:mana_furnace",
+            "text": "$(br2)Crafted in Arcane Workbench",
+            "title": ""
+        }
+    ]
+}
