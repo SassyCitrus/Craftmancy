@@ -1,0 +1,24 @@
+{
+    "sortnum": 1,
+    "name": "Cores",
+    "icon": "craftmancy:core_blank",
+    "category": "rituals",
+    "pages": [
+        {
+            "type": "text",
+            "title": "",
+            "text": ""
+        },
+        {
+            "type": "crafting",
+            "recipe": "craftmancy:core_blank",
+            "text": "$(br2)Crafted in Arcane Workbench"
+        },
+        {
+            "type": "spotlight",
+            "item": "craftmancy:core_furnace",
+            "link_recipe": true,
+            "text": "Core for Arcane Furnace.$(br2)Components needed:$(br)$(li)Blank Core$(li)Coal$(li)Coal Block$(li)Edelila Gem$(li)Furnace"
+        }
+    ]
+}

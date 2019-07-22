@@ -1,0 +1,37 @@
+{
+    "sortnum": 0,
+    "name": "Ritual Altar",
+    "icon": "craftmancy:ritual_altar",
+    "category": "rituals",
+    "pages": [
+        {
+            "type": "text",
+            "title": "Ritual Altar",
+            "text": ""
+        },
+        {
+            "type": "crafting",
+            "recipe": "craftmancy:ritual_altar",
+            "recipe2": "craftmancy:ritual_pedestal"
+        },
+        {
+            "type": "text",
+            "title": "Multiblock",
+            "text": "Text describing setup followed by multiblock page"
+        },
+        {
+            "type": "multiblock",
+            "name": "Ritual Altar",
+            "multiblock": {
+                "pattern": [
+                    ["P P", " 0 ", "P P"]
+                ],
+                "mapping": {
+                    "0": "craftmancy:ritual_altar",
+                    "P": "craftmancy:ritual_pedestal"
+                },
+                "symmetrical": true
+            }
+        }
+    ]
+}
