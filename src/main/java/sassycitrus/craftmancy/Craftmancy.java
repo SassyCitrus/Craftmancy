@@ -17,6 +17,7 @@ import sassycitrus.craftmancy.capability.ManaCapabilityHandler;
 import sassycitrus.craftmancy.gui.GuiHandler;
 import sassycitrus.craftmancy.init.CraftmancyBlocks;
 import sassycitrus.craftmancy.init.CraftmancyCommands;
+import sassycitrus.craftmancy.init.CraftmancyEntities;
 import sassycitrus.craftmancy.init.CraftmancyItems;
 import sassycitrus.craftmancy.network.Network;
 import sassycitrus.craftmancy.proxy.CommonProxy;
@@ -44,8 +45,9 @@ public class Craftmancy
         
         GameRegistry.registerWorldGenerator(new CraftmancyWorldGen(), 3);
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
-        proxy.registerRenderers();
         ManaCapabilityHandler.register();
+        CraftmancyEntities.register();
+        proxy.registerRenderers();
     }
 
     @Mod.EventHandler

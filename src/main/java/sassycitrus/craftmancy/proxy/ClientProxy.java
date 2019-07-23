@@ -7,6 +7,7 @@ import net.minecraftforge.fml.client.registry.ClientRegistry;
 import sassycitrus.craftmancy.Craftmancy;
 import sassycitrus.craftmancy.block.ritual.TESRRitualBlock;
 import sassycitrus.craftmancy.block.ritual.TileRitualBlock;
+import sassycitrus.craftmancy.init.CraftmancyEntities;
 
 public class ClientProxy extends CommonProxy
 {
@@ -21,5 +22,7 @@ public class ClientProxy extends CommonProxy
     public void registerRenderers()
     {
         ClientRegistry.bindTileEntitySpecialRenderer(TileRitualBlock.class, new TESRRitualBlock());
+
+        CraftmancyEntities.registerRenderers();
     }
 }
