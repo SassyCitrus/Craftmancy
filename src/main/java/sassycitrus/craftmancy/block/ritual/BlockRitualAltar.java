@@ -1,5 +1,7 @@
 package sassycitrus.craftmancy.block.ritual;
 
+import java.util.ArrayList;
+
 import javax.annotation.Nullable;
 
 import net.minecraft.block.state.IBlockState;
@@ -103,13 +105,35 @@ public class BlockRitualAltar extends BlockRitual
     {
         ItemStack altarInput = getTileEntity(world, pos).getItem();
 
-        ItemStack[] pedestalItems = new ItemStack[4];
-        pedestalItems[0] = getTileEntity(world, pos.add(-1, 0, 1)).getItem();
-        pedestalItems[1] = getTileEntity(world, pos.add(1, 0, 1)).getItem();
-        pedestalItems[2] = getTileEntity(world, pos.add(-1, 0, -1)).getItem();
-        pedestalItems[3] = getTileEntity(world, pos.add(1, 0, -1)).getItem();
+        ArrayList<ItemStack> pedestalItems = new ArrayList<>();
 
-        NonNullList<ItemStack> pedestalInput = NonNullList.from(ItemStack.EMPTY, pedestalItems);
+        ItemStack item;
+
+        item = getTileEntity(world, pos.add(-1, 0, 1)).getItem();
+        if (!item.isEmpty())
+        {
+            pedestalItems.add(item);
+        }
+        
+        item = getTileEntity(world, pos.add(1, 0, 1)).getItem();
+        if (!item.isEmpty())
+        {
+            pedestalItems.add(item);
+        }
+
+        item = getTileEntity(world, pos.add(-1, 0, -1)).getItem();
+        if (!item.isEmpty())
+        {
+            pedestalItems.add(item);
+        }
+        
+        item = getTileEntity(world, pos.add(1, 0, -1)).getItem();
+        if (!item.isEmpty())
+        {
+            pedestalItems.add(item);
+        }
+
+        NonNullList<ItemStack> pedestalInput = NonNullList.from(ItemStack.EMPTY, pedestalItems.toArray(new ItemStack[pedestalItems.size()]));
 
         return RitualAltarCraftingManager.getRecipe(altarInput, pedestalInput);
     }
