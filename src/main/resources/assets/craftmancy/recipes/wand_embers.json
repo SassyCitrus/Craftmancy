@@ -1,0 +1,23 @@
+{
+    "type": "craftmancy:arcane_table",
+    "pattern": [
+        "  G",
+        " S ",
+        "M  "
+    ],
+    "key":{
+        "G": {
+            "item": "craftmancy:gem_feuermin"
+        },
+        "S": {
+            "item": "minecraft:blaze_rod"
+        },
+        "M": {
+            "type": "forge:ore_dict",
+            "ore": "ingotMithril"
+        }
+    },
+    "result": {
+        "item": "craftmancy:wand_embers"
+    }
+}
