@@ -15,6 +15,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.World;
 import sassycitrus.craftmancy.crafting.RitualAltarCraftingManager;
 import sassycitrus.craftmancy.crafting.RitualAltarCraftingManager.RitualRecipe;
@@ -27,6 +28,14 @@ import sassycitrus.craftmancy.util.StringUtil;
 
 public class BlockRitualAltar extends BlockRitual
 {
+    private static final Vec3i[] PEDESTAL_VECTORS = new Vec3i[]
+    {
+        new Vec3i(-1, 0, 1),
+        new Vec3i(1, 0, 1),
+        new Vec3i(-1, 0, -1),
+        new Vec3i(1, 0, -1)
+    };
+
     public BlockRitualAltar()
     {
         super("ritual_altar");
@@ -85,19 +94,18 @@ public class BlockRitualAltar extends BlockRitual
     public boolean isValidAltar(World world, BlockPos pos)
     {
         ResourceLocation name = CraftmancyBlocks.RITUAL_PEDESTAL.getRegistryName();
-        
-        IBlockState corner1 = world.getBlockState(pos.add(-1, 0, 1));
-        IBlockState corner2 = world.getBlockState(pos.add(1, 0, 1));
-        IBlockState corner3 = world.getBlockState(pos.add(-1, 0, -1));
-        IBlockState corner4 = world.getBlockState(pos.add(1, 0, -1));
 
-        if (corner1.getBlock().getRegistryName() == name && corner2.getBlock().getRegistryName() == name &&
-            corner3.getBlock().getRegistryName() == name && corner4.getBlock().getRegistryName() == name)
+        for (Vec3i offset : PEDESTAL_VECTORS)
         {
-            return true;
+            IBlockState pedestal = world.getBlockState(pos.add(offset));
+
+            if (pedestal.getBlock().getRegistryName() != name)
+            {
+                return false;
+            }
         }
 
-        return false;
+        return true;
     }
 
     @Nullable
@@ -109,28 +117,14 @@ public class BlockRitualAltar extends BlockRitual
 
         ItemStack item;
 
-        item = getTileEntity(world, pos.add(-1, 0, 1)).getItem();
-        if (!item.isEmpty())
+        for (Vec3i offset : PEDESTAL_VECTORS)
         {
-            pedestalItems.add(item);
-        }
-        
-        item = getTileEntity(world, pos.add(1, 0, 1)).getItem();
-        if (!item.isEmpty())
-        {
-            pedestalItems.add(item);
-        }
+            item = getTileEntity(world, pos.add(offset)).getItem();
 
-        item = getTileEntity(world, pos.add(-1, 0, -1)).getItem();
-        if (!item.isEmpty())
-        {
-            pedestalItems.add(item);
-        }
-        
-        item = getTileEntity(world, pos.add(1, 0, -1)).getItem();
-        if (!item.isEmpty())
-        {
-            pedestalItems.add(item);
+            if (!item.isEmpty())
+            {
+                pedestalItems.add(item);
+            }
         }
 
         NonNullList<ItemStack> pedestalInput = NonNullList.from(ItemStack.EMPTY, pedestalItems.toArray(new ItemStack[pedestalItems.size()]));
@@ -141,9 +135,10 @@ public class BlockRitualAltar extends BlockRitual
     public void removeItems(World world, BlockPos pos)
     {
         getTileEntity(world, pos).removeItem();
-        getTileEntity(world, pos.add(-1, 0, 1)).removeItem();
-        getTileEntity(world, pos.add(1, 0, 1)).removeItem();
-        getTileEntity(world, pos.add(-1, 0, -1)).removeItem();
-        getTileEntity(world, pos.add(1, 0, -1)).removeItem();
+
+        for (Vec3i offset : PEDESTAL_VECTORS)
+        {
+            getTileEntity(world, pos.add(offset)).removeItem();
+        }
     }
 }
