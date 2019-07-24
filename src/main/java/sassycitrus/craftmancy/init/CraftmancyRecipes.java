@@ -48,5 +48,23 @@ public class CraftmancyRecipes
             .addPedestalIngredient("blockCoal")
             .build()
         );
+
+        RitualAltarCraftingManager.addRecipe(
+            new RitualRecipe.Builder().setResult(CraftmancyItems.CORE_EMBERS).setCost(3)
+            .setAltarIngredient(CraftmancyItems.CORE_FURNACE)
+            .addPedestalIngredient(CraftmancyItems.GEM_EDELILA)
+            .addPedestalIngredient(CraftmancyItems.FEUERMIN)
+            .addPedestalIngredient(Items.BLAZE_POWDER)
+            .addPedestalIngredient(Items.FIRE_CHARGE)
+            .build()
+        );
+
+        RitualAltarCraftingManager.addRecipe(
+            new RitualRecipe.Builder().setResult(CraftmancyItems.GEM_FEUERMIN).setCost(3)
+            .setAltarIngredient(CraftmancyItems.CORE_EMBERS)
+            .addPedestalIngredient(CraftmancyItems.GEM_EDELILA)
+            .addPedestalIngredient(CraftmancyItems.FEUERMIN)
+            .build()
+        );
     }
 }

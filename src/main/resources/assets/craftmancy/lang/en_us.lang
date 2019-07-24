@@ -29,12 +29,14 @@ tile.ritual_pedestal.name=Ritual Pedestal
 
 item.gem_edelila.name=Edelila
 item.feuermin.name=Feuermin
+item.gem_feuermin.name=Crystallized Feuermin
 item.ingot_mithril.name=Mithril Ingot
 item.ingot_feuersteel.name=Feuersteel Ingot
 item.apple_edelila.name=Edelila Apple
 
 item.core_blank.name=Blank Core
 item.core_furnace.name=Furnace Core
+item.core_embers.name=Embers Core
 
 item.wand_craftmancy.name=Wand of Craftmancy
 item.wand_embers.name=Wand of Embers
