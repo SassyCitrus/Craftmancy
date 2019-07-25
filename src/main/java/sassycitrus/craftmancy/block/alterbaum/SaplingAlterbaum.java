@@ -16,6 +16,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.TerrainGen;
 import sassycitrus.craftmancy.Craftmancy;
 import sassycitrus.craftmancy.api.IBurnableFuel;
+import sassycitrus.craftmancy.init.CraftmancyBlocks;
 import sassycitrus.craftmancy.world.WorldGenTreeAlterbaum;
 
 public class SaplingAlterbaum extends BlockBush implements IGrowable, IBurnableFuel
@@ -65,7 +66,11 @@ public class SaplingAlterbaum extends BlockBush implements IGrowable, IBurnableF
         if (TerrainGen.saplingGrowTree(world, rand, pos))
         {
             WorldGenerator worldGenerator = new WorldGenTreeAlterbaum(true);
-            worldGenerator.generate(world, rand, pos);
+            
+            if (worldGenerator.generate(world, rand, pos))
+            {
+                world.setBlockState(pos, CraftmancyBlocks.ALTERBAUM_LOG.getDefaultState(), 3);
+            }
         }
     }
 
