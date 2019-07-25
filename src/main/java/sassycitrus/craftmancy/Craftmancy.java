@@ -2,6 +2,7 @@ package sassycitrus.craftmancy;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -15,6 +16,7 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import sassycitrus.craftmancy.capability.ManaCapabilityHandler;
 import sassycitrus.craftmancy.gui.GuiHandler;
+import sassycitrus.craftmancy.init.CraftmancyBiomes;
 import sassycitrus.craftmancy.init.CraftmancyBlocks;
 import sassycitrus.craftmancy.init.CraftmancyCommands;
 import sassycitrus.craftmancy.init.CraftmancyEntities;
@@ -54,6 +56,7 @@ public class Craftmancy
     public void init(FMLInitializationEvent event)
     {
         Network.register();
+        CraftmancyBiomes.init();
     }
 
     @Mod.EventHandler
@@ -89,6 +92,12 @@ public class Craftmancy
         {
             CraftmancyItems.registerModels();
             CraftmancyBlocks.registerModels();
+        }
+
+        @SubscribeEvent
+        public static void registerBiomes(RegistryEvent.Register<Biome> event)
+        {
+            CraftmancyBiomes.register(event);
         }
     }
 }
