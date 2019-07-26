@@ -33,6 +33,8 @@ public class CraftmancyRecipes
         OreDictionary.registerOre("blockMithril", CraftmancyBlocks.MITHRIL_BLOCK);
         OreDictionary.registerOre("ingotMithril", CraftmancyItems.INGOT_MITHRIL);
 
+        OreDictionary.registerOre("gemRuby", CraftmancyItems.GEM_RUBY);
+
         GameRegistry.addSmelting(CraftmancyBlocks.ORE_MITHRIL, new ItemStack(CraftmancyItems.INGOT_MITHRIL), 0.8F);
 
         registerRituals();

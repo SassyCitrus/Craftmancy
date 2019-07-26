@@ -25,6 +25,7 @@ import sassycitrus.craftmancy.block.manafurnace.BlockManaFurnace;
 import sassycitrus.craftmancy.block.manafurnace.TileManaFurnace;
 import sassycitrus.craftmancy.block.ore.OreEdelila;
 import sassycitrus.craftmancy.block.ore.OreFeuermin;
+import sassycitrus.craftmancy.block.ore.OreRuby;
 import sassycitrus.craftmancy.block.ritual.BlockRitual;
 import sassycitrus.craftmancy.block.ritual.BlockRitualAltar;
 import sassycitrus.craftmancy.block.ritual.TileRitualBlock;
@@ -34,10 +35,12 @@ public class CraftmancyBlocks
     public static HashMap<String, Block> BLOCKS = new HashMap<String, Block>();
 
     public static Block EDELILA_BLOCK = registerBlock(new BlockBase(Material.IRON, "edelila_block").setHardness(3.0F).setResistance(5.0F).setHarvestLevelBase("pickaxe", 2).setSoundType(SoundType.METAL));
+    public static Block RUBY_BLOCK = registerBlock(new BlockBase(Material.IRON, "ruby_block").setHardness(3.0F).setResistance(5.0F).setHarvestLevelBase("pickaxe", 2).setSoundType(SoundType.METAL));
     public static Block MITHRIL_BLOCK = registerBlock(new BlockBase(Material.IRON, "mithril_block").setHardness(3.0F).setResistance(5.0F).setHarvestLevelBase("pickaxe", 2).setSoundType(SoundType.METAL));
     public static Block FEUERMIN_BLOCK = registerBlock(new BlockBase(Material.IRON, "feuermin_block").setHardness(3.0F).setResistance(5.0F).setHarvestLevelBase("pickaxe", 2).setSoundType(SoundType.METAL));
     public static Block FEUERSTEEL = registerBlock(new BlockBase(Material.IRON, "feuersteel_block").setHardness(3.0F).setResistance(5.0F).setHarvestLevelBase("pickaxe", 2).setSoundType(SoundType.METAL));
     public static Block ORE_EDELILA = registerBlock(new OreEdelila());
+    public static Block ORE_RUBY = registerBlock(new OreRuby());
     public static Block ORE_MITHRIL = registerBlock(new BlockBase(Material.ROCK, "ore_mithril").setHardness(3.0F).setResistance(5.0F).setHarvestLevelBase("pickaxe", 2).setSoundType(SoundType.STONE));
     public static Block ORE_FEUERMIN = registerBlock(new OreFeuermin());
     public static Block ALTERBAUM_LOG = registerBlock(new AlterbaumLog());

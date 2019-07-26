@@ -16,6 +16,7 @@ public class CraftmancyItems
 
     public static Item ALTERBAUM_STICK = registerItem("stick_alterbaum");
     public static Item GEM_EDELILA = registerItem("gem_edelila");
+    public static Item GEM_RUBY = registerItem("gem_ruby");
     public static Item INGOT_MITHRIL = registerItem("ingot_mithril");
     public static Item FEUERMIN = registerItem("feuermin");
     public static Item INGOT_FEUERSTEEL = registerItem("ingot_feuersteel");
