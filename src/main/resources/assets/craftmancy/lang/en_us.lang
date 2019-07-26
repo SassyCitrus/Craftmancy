@@ -12,6 +12,7 @@ tile.ore_mithril.name=Mithril Ore
 tile.ore_feuermin.name=Feuermin Ore
 
 tile.edelila_block.name=Edelila Block
+tile.ruby_block.name=Ruby Block
 tile.mithril_block.name=Mithril Block
 tile.feuermin_block.name=Feuermin Block
 tile.feuersteel_block.name=Feuersteel Block
@@ -29,6 +30,7 @@ tile.ritual_pedestal.name=Ritual Pedestal
 
 item.stick_alterbaum.name=Alterbaum Stick
 item.gem_edelila.name=Edelila
+item.gem_ruby.name=Ruby
 item.feuermin.name=Feuermin
 item.gem_feuermin.name=Crystallized Feuermin
 item.ingot_mithril.name=Mithril Ingot
