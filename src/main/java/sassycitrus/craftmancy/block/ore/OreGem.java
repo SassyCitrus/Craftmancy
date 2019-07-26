@@ -11,23 +11,26 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import sassycitrus.craftmancy.block.BlockBase;
-import sassycitrus.craftmancy.init.CraftmancyItems;
 
-public class OreRuby extends BlockBase
+public class OreGem extends BlockBase
 {
-    public OreRuby()
+    Item gem;
+
+    public OreGem(String name, Item gem)
     {
-        super(Material.ROCK, "ore_ruby");
+        super(Material.ROCK, "ore_" + name);
         setHardness(3.0F);
         setResistance(5.0F);
         setSoundType(SoundType.STONE);
         setHarvestLevel("pickaxe", 2);
+
+        this.gem = gem;
     }
 
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return CraftmancyItems.GEM_RUBY;
+        return this.gem;
     }
 
     @Override
@@ -39,7 +42,7 @@ public class OreRuby extends BlockBase
     @Override
     public int quantityDroppedWithBonus(int fortune, Random random)
     {
-       if (fortune > 0)
+        if (fortune > 0)
        {
            return this.quantityDropped(random) + random.nextInt(fortune) + 1;
        }
