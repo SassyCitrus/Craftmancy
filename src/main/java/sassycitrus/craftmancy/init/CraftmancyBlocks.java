@@ -16,6 +16,7 @@ import sassycitrus.craftmancy.Craftmancy;
 import sassycitrus.craftmancy.api.IBurnableFuel;
 import sassycitrus.craftmancy.block.BlockArcaneTable;
 import sassycitrus.craftmancy.block.BlockBase;
+import sassycitrus.craftmancy.block.BlockStorageMetal;
 import sassycitrus.craftmancy.block.alterbaum.AlterbaumLeaves;
 import sassycitrus.craftmancy.block.alterbaum.AlterbaumLog;
 import sassycitrus.craftmancy.block.alterbaum.AlterbaumPlanks;
@@ -33,11 +34,11 @@ public class CraftmancyBlocks
 {
     public static HashMap<String, Block> BLOCKS = new HashMap<String, Block>();
 
-    public static Block EDELILA_BLOCK = registerBlock(new BlockBase(Material.IRON, "edelila_block").setHardness(3.0F).setResistance(5.0F).setHarvestLevelBase("pickaxe", 2).setSoundType(SoundType.METAL));
-    public static Block RUBY_BLOCK = registerBlock(new BlockBase(Material.IRON, "ruby_block").setHardness(3.0F).setResistance(5.0F).setHarvestLevelBase("pickaxe", 2).setSoundType(SoundType.METAL));
-    public static Block MITHRIL_BLOCK = registerBlock(new BlockBase(Material.IRON, "mithril_block").setHardness(3.0F).setResistance(5.0F).setHarvestLevelBase("pickaxe", 2).setSoundType(SoundType.METAL));
-    public static Block FEUERMIN_BLOCK = registerBlock(new BlockBase(Material.IRON, "feuermin_block").setHardness(3.0F).setResistance(5.0F).setHarvestLevelBase("pickaxe", 2).setSoundType(SoundType.METAL));
-    public static Block FEUERSTEEL = registerBlock(new BlockBase(Material.IRON, "feuersteel_block").setHardness(3.0F).setResistance(5.0F).setHarvestLevelBase("pickaxe", 2).setSoundType(SoundType.METAL));
+    public static Block EDELILA_BLOCK = registerBlock(new BlockStorageMetal("edelila"));
+    public static Block RUBY_BLOCK = registerBlock(new BlockStorageMetal("ruby"));
+    public static Block MITHRIL_BLOCK = registerBlock(new BlockStorageMetal("mithril"));
+    public static Block FEUERMIN_BLOCK = registerBlock(new BlockStorageMetal("feuermin"));
+    public static Block FEUERSTEEL_BLOCK = registerBlock(new BlockStorageMetal("feuersteel"));
     public static Block ORE_EDELILA = registerBlock(new OreGem("edelila", CraftmancyItems.GEM_EDELILA));
     public static Block ORE_RUBY = registerBlock(new OreGem("ruby", CraftmancyItems.GEM_RUBY));
     public static Block ORE_MITHRIL = registerBlock(new BlockBase(Material.ROCK, "ore_mithril").setHardness(3.0F).setResistance(5.0F).setHarvestLevelBase("pickaxe", 2).setSoundType(SoundType.STONE));
