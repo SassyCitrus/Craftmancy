@@ -7,14 +7,13 @@
     ],
     "key":{
         "G": {
-            "item": "craftmancy:gem_feuermin"
+            "item": "craftmancy:gem_ruby"
         },
         "S": {
-            "item": "minecraft:blaze_rod"
+            "item": "craftmancy:stick_alterbaum"
         },
         "M": {
-            "type": "forge:ore_dict",
-            "ore": "ingotMithril"
+            "item": "craftmancy:ingot_feuersteel"
         }
     },
     "result": {
