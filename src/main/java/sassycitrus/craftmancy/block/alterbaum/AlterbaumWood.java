@@ -5,12 +5,14 @@ import net.minecraft.block.material.Material;
 import sassycitrus.craftmancy.api.IBurnableFuel;
 import sassycitrus.craftmancy.block.BlockBase;
 
-public class PlanksAlterbaum extends BlockBase implements IBurnableFuel
+public class AlterbaumWood extends BlockBase implements IBurnableFuel
 {
-    public PlanksAlterbaum()
+    public AlterbaumWood()
     {
-        super(Material.WOOD, "alterbaum_planks");
-        setHardness(2.0F);
+        super(Material.ROCK, "alterbaum_wood");
+        setHarvestLevel("axe", 2);
+        setHardness(3.0F);
+        setResistance(5.0F);
         setSoundType(SoundType.WOOD);
     }
 

@@ -19,13 +19,13 @@ import sassycitrus.craftmancy.api.IBurnableFuel;
 import sassycitrus.craftmancy.init.CraftmancyBlocks;
 import sassycitrus.craftmancy.world.WorldGenTreeAlterbaum;
 
-public class SaplingAlterbaum extends BlockBush implements IGrowable, IBurnableFuel
+public class AlterbaumSapling extends BlockBush implements IGrowable, IBurnableFuel
 {
     protected static final String NAME = "alterbaum_sapling";
     protected static final AxisAlignedBB SAPLING_AABB = new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 0.800000011920929D, 0.8999999761581421D);
     public static final PropertyInteger STAGE = PropertyInteger.create("stage", 0, 1);
 
-    public SaplingAlterbaum()
+    public AlterbaumSapling()
     {
         setUnlocalizedName(NAME);
         setRegistryName(NAME);

@@ -21,11 +21,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import sassycitrus.craftmancy.Craftmancy;
 import sassycitrus.craftmancy.init.CraftmancyBlocks;
 
-public class LeavesAlterbaum extends BlockLeaves
+public class AlterbaumLeaves extends BlockLeaves
 {
     protected static final String NAME = "alterbaum_leaves";
 
-    public LeavesAlterbaum()
+    public AlterbaumLeaves()
     {
         setUnlocalizedName(NAME);
         setRegistryName(NAME);

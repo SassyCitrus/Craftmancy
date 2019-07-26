@@ -13,11 +13,11 @@ import net.minecraft.world.World;
 import sassycitrus.craftmancy.Craftmancy;
 import sassycitrus.craftmancy.api.IBurnableFuel;
 
-public class LogAlterbaum extends BlockLog implements IBurnableFuel
+public class AlterbaumLog extends BlockLog implements IBurnableFuel
 {
     public static final PropertyEnum<EnumAxis> LOG_AXIS = PropertyEnum.<EnumAxis>create("axis", EnumAxis.class);    
 
-    public LogAlterbaum()
+    public AlterbaumLog()
     {
         super();
         setHarvestLevel("axe", 2);
