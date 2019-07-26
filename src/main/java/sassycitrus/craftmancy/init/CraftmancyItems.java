@@ -14,6 +14,7 @@ public class CraftmancyItems
 {
     public static HashMap<String, Item> ITEMS = new HashMap<String, Item>();
 
+    public static Item ALTERBAUM_STICK = registerItem("stick_alterbaum");
     public static Item GEM_EDELILA = registerItem("gem_edelila");
     public static Item INGOT_MITHRIL = registerItem("ingot_mithril");
     public static Item FEUERMIN = registerItem("feuermin");

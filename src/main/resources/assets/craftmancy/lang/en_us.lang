@@ -27,6 +27,7 @@ tile.mana_furnace.name=Arcane Furnace
 tile.ritual_altar.name=Ritual Altar
 tile.ritual_pedestal.name=Ritual Pedestal
 
+item.stick_alterbaum.name=Alterbaum Stick
 item.gem_edelila.name=Edelila
 item.feuermin.name=Feuermin
 item.gem_feuermin.name=Crystallized Feuermin
