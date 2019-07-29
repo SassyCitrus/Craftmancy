@@ -1,5 +1,7 @@
 ![Logo](src/main/resources/assets/craftmancy/logo.png)
 
+A WIP magic mod. Mostly for getting acquainted with modding with Forge.
+
 # Building
 
 Standard Forge developmet enviroment setup:
